@@ -1,0 +1,18 @@
+package br.com.sinodal.gradeup.repository;
+
+import br.com.sinodal.gradeup.domain.Users;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
+
+public interface UserRepository extends JpaRepository<Users, Long> {
+    Optional<Users> findByEmail(String email);
+
+    Page<Users> findByNameContainingIgnoreCaseOrEmailContainingIgnoreCase(
+            String name,
+            String email,
+            Pageable pageable
+    );
+}
