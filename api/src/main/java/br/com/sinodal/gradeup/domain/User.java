@@ -13,7 +13,8 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @AllArgsConstructor @NoArgsConstructor
 @Getter @Setter @EqualsAndHashCode(of = "id") @ToString(of = "id")
 @Entity
-public class Users {
+@Table(name = "Users")
+public class User {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)

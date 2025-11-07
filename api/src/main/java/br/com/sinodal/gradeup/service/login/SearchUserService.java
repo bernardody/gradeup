@@ -1,8 +1,8 @@
-package br.com.sinodal.gradeup.service;
+package br.com.sinodal.gradeup.service.login;
 
-import br.com.sinodal.gradeup.controller.response.ListUserResponse;
-import br.com.sinodal.gradeup.domain.Users;
-import br.com.sinodal.gradeup.mapper.ListUserMapper;
+import br.com.sinodal.gradeup.controller.response.user.ListUserResponse;
+import br.com.sinodal.gradeup.domain.User;
+import br.com.sinodal.gradeup.mapper.user.ListUserMapper;
 import br.com.sinodal.gradeup.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -23,7 +23,7 @@ public class SearchUserService {
         ).map(ListUserMapper::toResponse);
     }
 
-    public Optional<Users> buscarPorEmail(String email) {
+    public Optional<User> buscarPorEmail(String email) {
         return userRepository.findByEmail(email);
     }
 }

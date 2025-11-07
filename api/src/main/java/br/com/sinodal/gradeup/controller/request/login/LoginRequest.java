@@ -1,4 +1,4 @@
-package br.com.sinodal.gradeup.controller.request;
+package br.com.sinodal.gradeup.controller.request.login;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

@@ -1,4 +1,4 @@
-package br.com.sinodal.gradeup.controller.response;
+package br.com.sinodal.gradeup.controller.response.user;
 
 import br.com.sinodal.gradeup.enums.UserType;
 import lombok.*;

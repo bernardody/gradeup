@@ -1,9 +1,9 @@
 package br.com.sinodal.gradeup.controller;
 
-import br.com.sinodal.gradeup.controller.request.LoginRequest;
-import br.com.sinodal.gradeup.controller.response.LoginResponse;
-import br.com.sinodal.gradeup.domain.Users;
-import br.com.sinodal.gradeup.service.SearchUserService;
+import br.com.sinodal.gradeup.controller.request.login.LoginRequest;
+import br.com.sinodal.gradeup.controller.response.login.LoginResponse;
+import br.com.sinodal.gradeup.domain.User;
+import br.com.sinodal.gradeup.service.login.SearchUserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -31,13 +31,13 @@ public class LoginController {
 
     @PostMapping
     public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginRequest loginRequest) {
-        Optional<Users> optUser = searchUserService.buscarPorEmail(loginRequest.getEmail());
+        Optional<User> optUser = searchUserService.buscarPorEmail(loginRequest.getEmail());
 
         if (optUser.isEmpty() || !isLoginCorreto(loginRequest.getSenha(), optUser.get().getPassword())) {
             throw new BadCredentialsException("Usuário ou senha incorretos!");
         }
 
-        Users usuario = optUser.get();
+        User usuario = optUser.get();
 
         long expiresIn = 600L;
 
