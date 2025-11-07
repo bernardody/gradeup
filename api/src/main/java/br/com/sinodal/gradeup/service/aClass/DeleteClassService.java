@@ -18,6 +18,6 @@ public class DeleteClassService {
         Class aClass = classRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Turma não encontrada"));
 
-        classRepository.deleteById(id);
+        classRepository.deleteById(aClass.getId());
     }
 }
