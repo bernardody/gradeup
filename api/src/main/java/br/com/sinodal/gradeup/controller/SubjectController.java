@@ -1,7 +1,7 @@
 package br.com.sinodal.gradeup.controller;
 
-import br.com.sinodal.gradeup.controller.request.subject.CreateSubjectRequest;
-import br.com.sinodal.gradeup.controller.response.subject.ListSubjectResponse;
+import br.com.sinodal.gradeup.controller.request.subject.UpsertSubjectRequest;
+import br.com.sinodal.gradeup.controller.response.subject.SubjectResponse;
 import br.com.sinodal.gradeup.service.subject.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -16,27 +16,27 @@ public class SubjectController {
 
     private final ListSubjectService listSubjectService;
     private final GetSubjectService getSubjectService;
-    private final CreateSubjectService createSubjectService;
+    private final InsertSubjectService createSubjectService;
     private final UpdateSubjectService updateSubjectService;
     private final DeleteSubjectService deleteSubjectService;
 
     @GetMapping
-    public Page<ListSubjectResponse> listSubjects(Pageable pageable) {
+    public Page<SubjectResponse> listSubjects(Pageable pageable) {
         return listSubjectService.list(pageable);
     }
 
     @GetMapping("/{id}")
-    public ListSubjectResponse getSubject(@PathVariable Long id) {
+    public SubjectResponse getSubject(@PathVariable Long id) {
         return getSubjectService.byId(id);
     }
 
     @PostMapping
-    public ListSubjectResponse createSubject(@RequestBody CreateSubjectRequest request) {
-        return createSubjectService.create(request);
+    public SubjectResponse insertSubject(@RequestBody UpsertSubjectRequest request) {
+        return createSubjectService.insert(request);
     }
 
     @PutMapping("/{id}")
-    public ListSubjectResponse updateSubject(@PathVariable Long id, @RequestBody CreateSubjectRequest request) {
+    public SubjectResponse updateSubject(@PathVariable Long id, @RequestBody UpsertSubjectRequest request) {
         return updateSubjectService.update(id, request);
     }
 

@@ -1,4 +1,4 @@
-package br.com.sinodal.gradeup.controller.request.aClass;
+package br.com.sinodal.gradeup.controller.request.classes;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CreateClassRequest {
+public class UpsertClassRequest {
 
     @NotBlank
     private String name;

@@ -1,6 +1,6 @@
 package br.com.sinodal.gradeup.service.user;
 
-import br.com.sinodal.gradeup.controller.response.user.ListUserResponse;
+import br.com.sinodal.gradeup.controller.response.user.UserResponse;
 import br.com.sinodal.gradeup.domain.User;
 import br.com.sinodal.gradeup.mapper.user.ListUserMapper;
 import br.com.sinodal.gradeup.repository.UserRepository;
@@ -15,7 +15,7 @@ public class GetUserService {
 
     private final UserRepository userRepository;
 
-    public ListUserResponse byId(Long id) {
+    public UserResponse byId(Long id) {
 
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado"));

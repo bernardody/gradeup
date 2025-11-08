@@ -1,6 +1,6 @@
 package br.com.sinodal.gradeup.service.login;
 
-import br.com.sinodal.gradeup.controller.response.user.ListUserResponse;
+import br.com.sinodal.gradeup.controller.response.user.UserResponse;
 import br.com.sinodal.gradeup.domain.User;
 import br.com.sinodal.gradeup.mapper.user.ListUserMapper;
 import br.com.sinodal.gradeup.repository.UserRepository;
@@ -17,7 +17,7 @@ public class SearchUserService {
 
     private final UserRepository userRepository;
 
-    public Page<ListUserResponse> search(String text, Pageable pageable) {
+    public Page<UserResponse> search(String text, Pageable pageable) {
         return userRepository.findByNameContainingIgnoreCaseOrEmailContainingIgnoreCase(
                 text, text, pageable
         ).map(ListUserMapper::toResponse);

@@ -7,7 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Setter
-public class ListSubjectResponse {
+public class SubjectResponse {
 
     private Long id;
     private String name;

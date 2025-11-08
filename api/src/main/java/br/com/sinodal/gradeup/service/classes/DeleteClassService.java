@@ -1,11 +1,8 @@
-package br.com.sinodal.gradeup.service.aClass;
+package br.com.sinodal.gradeup.service.classes;
 
-import br.com.sinodal.gradeup.controller.request.aClass.CreateClassRequest;
-import br.com.sinodal.gradeup.controller.response.aClass.ListClassResponse;
 import br.com.sinodal.gradeup.domain.Class;
 import br.com.sinodal.gradeup.domain.User;
 import br.com.sinodal.gradeup.enums.UserType;
-import br.com.sinodal.gradeup.mapper.aClass.CreateClassMapper;
 import br.com.sinodal.gradeup.repository.ClassRepository;
 import br.com.sinodal.gradeup.service.user.AuthenticatedUserService;
 import lombok.RequiredArgsConstructor;
@@ -15,22 +12,21 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RequiredArgsConstructor
 @Service
-public class CreateClassService {
+public class DeleteClassService {
 
     private final ClassRepository classRepository;
     private final AuthenticatedUserService authenticatedUserService;
 
-    public ListClassResponse create(CreateClassRequest request) {
+    public void delete(Long id) {
 
         User loggedUser = authenticatedUserService.get();
 
         if (!loggedUser.getType().equals(UserType.ADMIN))
-            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Você não tem permissão para criar turmas");
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Você não tem permissão para deletar essa turma");
 
-        Class aClass = CreateClassMapper.toEntity(request);
+        Class aClass = classRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Turma não encontrada"));
 
-        classRepository.save(aClass);
-
-        return CreateClassMapper.toResponse(aClass);
+        classRepository.deleteById(aClass.getId());
     }
 }

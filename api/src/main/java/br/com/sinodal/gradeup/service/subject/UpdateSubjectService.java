@@ -1,7 +1,7 @@
 package br.com.sinodal.gradeup.service.subject;
 
-import br.com.sinodal.gradeup.controller.request.subject.CreateSubjectRequest;
-import br.com.sinodal.gradeup.controller.response.subject.ListSubjectResponse;
+import br.com.sinodal.gradeup.controller.request.subject.UpsertSubjectRequest;
+import br.com.sinodal.gradeup.controller.response.subject.SubjectResponse;
 import br.com.sinodal.gradeup.domain.Subject;
 import br.com.sinodal.gradeup.domain.User;
 import br.com.sinodal.gradeup.enums.UserType;
@@ -20,7 +20,7 @@ public class UpdateSubjectService {
     private final SubjectRepository subjectRepository;
     private final AuthenticatedUserService authenticatedUserService;
 
-    public ListSubjectResponse update(Long id, CreateSubjectRequest request) {
+    public SubjectResponse update(Long id, UpsertSubjectRequest request) {
 
         User loggedUser = authenticatedUserService.get();
 

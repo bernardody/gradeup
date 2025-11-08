@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Setter
-public class ListUserResponse {
+public class UserResponse {
 
     private Long id;
     private String name;

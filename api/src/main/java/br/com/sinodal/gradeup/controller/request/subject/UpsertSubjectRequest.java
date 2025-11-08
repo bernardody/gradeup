@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CreateSubjectRequest {
+public class UpsertSubjectRequest {
 
     @NotBlank
     private String name;

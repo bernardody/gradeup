@@ -1,11 +1,11 @@
-package br.com.sinodal.gradeup.service.aClass;
+package br.com.sinodal.gradeup.service.classes;
 
-import br.com.sinodal.gradeup.controller.request.aClass.CreateClassRequest;
-import br.com.sinodal.gradeup.controller.response.aClass.ListClassResponse;
+import br.com.sinodal.gradeup.controller.request.classes.UpsertClassRequest;
+import br.com.sinodal.gradeup.controller.response.classes.ClassResponse;
 import br.com.sinodal.gradeup.domain.Class;
 import br.com.sinodal.gradeup.domain.User;
 import br.com.sinodal.gradeup.enums.UserType;
-import br.com.sinodal.gradeup.mapper.aClass.UpdateClassMapper;
+import br.com.sinodal.gradeup.mapper.classes.UpdateClassMapper;
 import br.com.sinodal.gradeup.repository.ClassRepository;
 import br.com.sinodal.gradeup.service.user.AuthenticatedUserService;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +20,7 @@ public class UpdateClassService {
     private final ClassRepository classRepository;
     private final AuthenticatedUserService authenticatedUserService;
 
-    public ListClassResponse update(Long id, CreateClassRequest request) {
+    public ClassResponse update(Long id, UpsertClassRequest request) {
 
         User loggedUser = authenticatedUserService.get();
 

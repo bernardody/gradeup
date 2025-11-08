@@ -1,6 +1,6 @@
 package br.com.sinodal.gradeup.service.subject;
 
-import br.com.sinodal.gradeup.controller.response.subject.ListSubjectResponse;
+import br.com.sinodal.gradeup.controller.response.subject.SubjectResponse;
 import br.com.sinodal.gradeup.domain.Subject;
 import br.com.sinodal.gradeup.mapper.subject.ListSubjectMapper;
 import br.com.sinodal.gradeup.repository.SubjectRepository;
@@ -15,7 +15,7 @@ public class GetSubjectService {
 
     private final SubjectRepository subjectRepository;
 
-    public ListSubjectResponse byId(Long id) {
+    public SubjectResponse byId(Long id) {
         Subject subject = subjectRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Matéria não encontrada"));
 

@@ -1,12 +1,10 @@
 package br.com.sinodal.gradeup.service.user;
 
 import br.com.sinodal.gradeup.controller.request.user.UpdateUserRequest;
-import br.com.sinodal.gradeup.controller.response.user.ListUserResponse;
-import br.com.sinodal.gradeup.domain.Class;
+import br.com.sinodal.gradeup.controller.response.user.UserResponse;
 import br.com.sinodal.gradeup.domain.User;
 import br.com.sinodal.gradeup.enums.UserType;
 import br.com.sinodal.gradeup.mapper.user.ListUserMapper;
-import br.com.sinodal.gradeup.repository.ClassRepository;
 import br.com.sinodal.gradeup.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -20,7 +18,7 @@ public class UpdateUserService {
     private final UserRepository userRepository;
     private final AuthenticatedUserService authenticatedUserService;
 
-    public ListUserResponse update(Long id, UpdateUserRequest request) {
+    public UserResponse update(Long id, UpdateUserRequest request) {
 
         User loggedUser = authenticatedUserService.get();
 

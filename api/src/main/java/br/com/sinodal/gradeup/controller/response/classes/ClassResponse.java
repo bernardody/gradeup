@@ -1,4 +1,4 @@
-package br.com.sinodal.gradeup.controller.response.aClass;
+package br.com.sinodal.gradeup.controller.response.classes;
 
 import lombok.*;
 
@@ -7,7 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Setter
-public class ListClassResponse {
+public class ClassResponse {
 
     private Long id;
     private String name;

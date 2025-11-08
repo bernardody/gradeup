@@ -8,7 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class CreateUserRequest {
+public class InsertUserRequest {
 
     @NotBlank
     private String name;

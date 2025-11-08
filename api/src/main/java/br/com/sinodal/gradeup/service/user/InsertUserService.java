@@ -1,7 +1,7 @@
 package br.com.sinodal.gradeup.service.user;
 
-import br.com.sinodal.gradeup.controller.request.user.CreateUserRequest;
-import br.com.sinodal.gradeup.controller.response.user.ListUserResponse;
+import br.com.sinodal.gradeup.controller.request.user.InsertUserRequest;
+import br.com.sinodal.gradeup.controller.response.user.UserResponse;
 import br.com.sinodal.gradeup.domain.User;
 import br.com.sinodal.gradeup.enums.UserType;
 import br.com.sinodal.gradeup.mapper.user.InsertUserMapper;
@@ -13,12 +13,12 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RequiredArgsConstructor
 @Service
-public class CreateUserService {
+public class InsertUserService {
 
     private final UserRepository userRepository;
     private final AuthenticatedUserService authenticatedUserService;
 
-    public ListUserResponse insert(CreateUserRequest request) {
+    public UserResponse insert(InsertUserRequest request) {
 
         User loggedUser = authenticatedUserService.get();
 

@@ -1,0 +1,54 @@
+package br.com.sinodal.gradeup.service.exam;
+
+import br.com.sinodal.gradeup.controller.request.exam.UpdateExamRequest;
+import br.com.sinodal.gradeup.controller.response.exam.ExamResponse;
+import br.com.sinodal.gradeup.domain.Class;
+import br.com.sinodal.gradeup.domain.Exam;
+import br.com.sinodal.gradeup.domain.Subject;
+import br.com.sinodal.gradeup.domain.User;
+import br.com.sinodal.gradeup.enums.UserType;
+import br.com.sinodal.gradeup.mapper.exam.UpdateExamMapper;
+import br.com.sinodal.gradeup.repository.ClassRepository;
+import br.com.sinodal.gradeup.repository.ExamRepository;
+import br.com.sinodal.gradeup.repository.SubjectRepository;
+import br.com.sinodal.gradeup.service.user.AuthenticatedUserService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+
+@RequiredArgsConstructor
+@Service
+public class UpdateExamService {
+
+    private final ExamRepository examRepository;
+    private final ClassRepository classRepository;
+    private final SubjectRepository subjectRepository;
+    private final AuthenticatedUserService authenticatedUserService;
+
+    public ExamResponse update(Long id, UpdateExamRequest request) {
+
+        User loggedUser = authenticatedUserService.get();
+
+        if (!loggedUser.getType().equals(UserType.TEACHER))
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Você não tem permissão para editar provas");
+
+        Exam exam = examRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Prova não encontrada"));
+
+        Class classEntity = classRepository.findById(request.getClassId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Turma não encontrada"));
+
+        Subject subject = subjectRepository.findById(request.getSubjectId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Matéria não encontrada"));
+
+        exam.setClassEntity(classEntity);
+        exam.setSubject(subject);
+        exam.setName(request.getName());
+        exam.setExamDate(request.getExamDate());
+
+        examRepository.save(exam);
+
+        return UpdateExamMapper.toResponse(exam);
+    }
+}
