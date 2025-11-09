@@ -33,7 +33,7 @@ public class InsertWarningsService {
         if (!loggedUser.getType().equals(UserType.TEACHER))
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Você não tem permissão para criar avisos");
 
-        Exam exam = examRepository.findById(request.getExam())
+        Exam exam = examRepository.findById(request.getExam_id())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Prova não encontrada"));
 
         Warning warning = InsertWarningMapper.toEntity(request, exam);

@@ -10,7 +10,7 @@ import lombok.Setter;
 public class InsertWarningRequest {
 
     @NotNull
-    private Long exam;
+    private Long exam_id;
 
     @NotBlank
     private String title;
