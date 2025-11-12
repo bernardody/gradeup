@@ -5,12 +5,14 @@ import br.com.sinodal.gradeup.controller.response.exam.ExamResponse;
 import br.com.sinodal.gradeup.domain.Class;
 import br.com.sinodal.gradeup.domain.Exam;
 import br.com.sinodal.gradeup.domain.Subject;
+import br.com.sinodal.gradeup.domain.Trimester;
 import br.com.sinodal.gradeup.domain.User;
 import br.com.sinodal.gradeup.enums.UserType;
 import br.com.sinodal.gradeup.mapper.exam.InsertExamMapper;
 import br.com.sinodal.gradeup.repository.ClassRepository;
 import br.com.sinodal.gradeup.repository.ExamRepository;
 import br.com.sinodal.gradeup.repository.SubjectRepository;
+import br.com.sinodal.gradeup.repository.TrimesterRepository;
 import br.com.sinodal.gradeup.repository.UserRepository;
 import br.com.sinodal.gradeup.service.user.AuthenticatedUserService;
 import lombok.RequiredArgsConstructor;
@@ -26,6 +28,7 @@ public class InsertExamService {
     private final ClassRepository classRepository;
     private final SubjectRepository subjectRepository;
     private final UserRepository userRepository;
+    private final TrimesterRepository trimesterRepository;
     private final AuthenticatedUserService authenticatedUserService;
 
     public ExamResponse insert(InsertExamRequest request) {
@@ -47,7 +50,10 @@ public class InsertExamService {
         if (!teacher.getType().equals(UserType.TEACHER))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "O usuário informado não é um professor");
 
-        Exam exam = InsertExamMapper.toEntity(request, classEntity, subject, teacher);
+        Trimester trimester = trimesterRepository.findById(request.getTrimesterId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Trimestre não encontrado"));
+
+        Exam exam = InsertExamMapper.toEntity(request, classEntity, subject, teacher, trimester);
 
         examRepository.save(exam);
 

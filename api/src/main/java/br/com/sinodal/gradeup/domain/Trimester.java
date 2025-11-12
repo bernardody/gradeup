@@ -1,8 +1,14 @@
 package br.com.sinodal.gradeup.domain;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
+
+import java.math.BigDecimal;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
@@ -14,20 +20,19 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @EqualsAndHashCode(of = "id")
 @ToString(of = "id")
 @Entity
-@Table(name = "Registrations")
-public class Registration {
+@Table(name = "Trimesters")
+public class Trimester {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
-    @NotNull
-    @ManyToOne
-    @JoinColumn(name = "student_id", nullable = false)
-    private User student;
+    @NotBlank
+    private String name;
 
     @NotNull
-    @ManyToOne
-    @JoinColumn(name = "class_id", nullable = false)
-    private Class classEntity;
+    private BigDecimal maxPoints;
+
+    @NotNull
+    private BigDecimal minPoints;
 }

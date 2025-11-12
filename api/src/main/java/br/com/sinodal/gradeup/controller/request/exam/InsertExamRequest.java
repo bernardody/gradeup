@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Getter
@@ -20,8 +21,14 @@ public class InsertExamRequest {
     @NotNull
     private Long teacherId;
 
+    @NotNull
+    private Long trimesterId;
+
     @NotBlank
     private String name;
+
+    @NotNull
+    private BigDecimal maxScore;
 
     @NotNull
     private LocalDate examDate;

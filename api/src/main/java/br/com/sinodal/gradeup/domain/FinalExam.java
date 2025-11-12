@@ -1,7 +1,6 @@
 package br.com.sinodal.gradeup.domain;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
@@ -18,8 +17,8 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @EqualsAndHashCode(of = "id")
 @ToString(of = "id")
 @Entity
-@Table(name = "Exams")
-public class Exam {
+@Table(name = "Final_Exams")
+public class FinalExam {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -41,18 +40,12 @@ public class Exam {
     private User teacher;
 
     @NotNull
-    @ManyToOne
-    @JoinColumn(name = "trimester_id", nullable = false)
-    private Trimester trimester;
-
-    @NotBlank
-    private String name;
+    @Column(name = "exam_date")
+    private LocalDate examDate;
 
     @NotNull
-    @Column(name = "max_score")
     private BigDecimal maxScore;
 
     @NotNull
-    @Column(name = "exam_date")
-    private LocalDate examDate;
+    private BigDecimal minScore;
 }
