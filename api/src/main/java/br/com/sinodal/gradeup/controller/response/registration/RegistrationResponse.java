@@ -1,7 +1,7 @@
 package br.com.sinodal.gradeup.controller.response.registration;
 
-import br.com.sinodal.gradeup.domain.Class;
-import br.com.sinodal.gradeup.domain.User;
+import br.com.sinodal.gradeup.controller.response.classes.ClassResponse;
+import br.com.sinodal.gradeup.controller.response.user.UserResponse;
 import lombok.*;
 
 @Builder
@@ -12,6 +12,6 @@ import lombok.*;
 public class RegistrationResponse {
 
     private Long id;
-    private Class classEntity;
-    private User student;
+    private ClassResponse classEntity;
+    private UserResponse student;
 }

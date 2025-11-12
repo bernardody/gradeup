@@ -25,7 +25,6 @@ public class UpdateRegistrationService {
     private final ClassRepository classRepository;
     private final AuthenticatedUserService authenticatedUserService;
 
-
     public RegistrationResponse update(Long id, UpsertRegistrationRequest request) {
 
         User loggedUser = authenticatedUserService.get();
@@ -36,10 +35,13 @@ public class UpdateRegistrationService {
         Registration registration = registrationRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Matrícula não encontrada"));
 
-        User student = userRepository.findById(request.getStudent_id())
+        User student = userRepository.findById(request.getStudentId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Aluno não encontrado"));
 
-        Class classEntity = classRepository.findById(request.getClass_id())
+        if (!student.getType().equals(UserType.STUDENT))
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "O usuário informado não é um aluno");
+
+        Class classEntity = classRepository.findById(request.getClassId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Turma não encontrada"));
 
         registration.setStudent(student);

@@ -5,8 +5,11 @@ import br.com.sinodal.gradeup.controller.response.registration.RegistrationRespo
 import br.com.sinodal.gradeup.domain.Class;
 import br.com.sinodal.gradeup.domain.Registration;
 import br.com.sinodal.gradeup.domain.User;
+import br.com.sinodal.gradeup.mapper.classes.ListClassMapper;
+import br.com.sinodal.gradeup.mapper.user.ListUserMapper;
 
 public class UpsertRegistrationMapper {
+
     public static Registration toEntity(UpsertRegistrationRequest request, User student, Class classEntity) {
         return Registration.builder()
                 .classEntity(classEntity)
@@ -17,8 +20,8 @@ public class UpsertRegistrationMapper {
     public static RegistrationResponse toResponse(Registration entity) {
         return RegistrationResponse.builder()
                 .id(entity.getId())
-                .classEntity(entity.getClassEntity())
-                .student(entity.getStudent())
+                .classEntity(ListClassMapper.toResponse(entity.getClassEntity()))
+                .student(ListUserMapper.toResponse(entity.getStudent()))
                 .build();
     }
 }
