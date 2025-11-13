@@ -22,10 +22,10 @@ public class DeleteRegistrationService {
         User loggedUser = authenticatedUserService.get();
 
         if (!loggedUser.getType().equals(UserType.ADMIN))
-            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Você não tem permissão para excluir avisos");
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Você não tem permissão para excluir matrículas");
 
         Registration registration = registrationRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Matrícula não encontrado"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Matrícula não encontrada"));
 
         registrationRepository.deleteById(registration.getId());
     }
