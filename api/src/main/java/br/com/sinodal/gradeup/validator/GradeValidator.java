@@ -18,7 +18,7 @@ public class GradeValidator {
         }
 
         if (grade.compareTo(MIN_GRADE) < 0 || grade.compareTo(MAX_GRADE) > 0) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "A nota deve estar entre 0 e 10");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "A nota é maior ou menor que o requisitado");
         }
     }
 }

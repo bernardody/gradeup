@@ -41,6 +41,10 @@ public class InsertFinalGradeService {
         if (!student.getType().equals(UserType.STUDENT))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "O usuário informado não é um aluno");
 
+        if (finalGradeRepository.existsByFinalExamIdAndStudentId(request.getFinalExamId(), request.getStudentId())) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Este aluno já está inscrito na prova");
+        }
+
         FinalGrade finalGrade = InsertFinalGradeMapper.toEntity(request, finalExam, student);
 
         finalGradeRepository.save(finalGrade);
