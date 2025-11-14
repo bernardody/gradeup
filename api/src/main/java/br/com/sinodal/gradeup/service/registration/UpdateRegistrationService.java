@@ -44,6 +44,10 @@ public class UpdateRegistrationService {
         Class classEntity = classRepository.findById(request.getClassId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Turma não encontrada"));
 
+        if (registrationRepository.existsByStudentIdAndClassId(request.getStudentId(), request.getClassId())) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Este aluno já tem está nessa turma");
+        }
+
         registration.setStudent(student);
         registration.setClassEntity(classEntity);
 

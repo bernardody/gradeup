@@ -25,6 +25,10 @@ public class InsertUserService {
         if (!loggedUser.getType().equals(UserType.ADMIN))
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Você não tem permissão para criar usuários");
 
+        if (userRepository.existsByEmail(request.getEmail())) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Já existe um usuário com esse email");
+        }
+
         User user = InsertUserMapper.toEntity(request);
 
         userRepository.save(user);

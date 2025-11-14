@@ -45,6 +45,10 @@ public class InsertGradeService {
         if (!student.getType().equals(UserType.STUDENT))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "O usuário informado não é um aluno");
 
+        if (gradeRepository.existsByExamIdAndStudentId(request.getExamId(), request.getStudentId())) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Este aluno já está inscrito na prova");
+        }
+
         Grade grade = InsertGradeMapper.toEntity(request, exam, student);
 
         gradeRepository.save(grade);
