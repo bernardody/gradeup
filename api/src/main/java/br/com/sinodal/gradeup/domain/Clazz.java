@@ -20,7 +20,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @ToString(of = "id")
 @Entity
 @Table(name = "Classes")
-public class Class {
+public class Clazz {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -32,22 +32,22 @@ public class Class {
     @NotNull
     private int year;
 
-    @OneToMany(mappedBy = "classEntity")
+    @OneToMany(mappedBy = "clazz")
     @Builder.Default
     @JsonIgnore
     private List<Registration> registrations = new ArrayList<>();
 
-    @OneToMany(mappedBy = "classEntity")
+    @OneToMany(mappedBy = "clazz")
     @Builder.Default
     @JsonIgnore
     private List<Exam> exams = new ArrayList<>();
 
-    @OneToMany(mappedBy = "classEntity")
+    @OneToMany(mappedBy = "clazz")
     @Builder.Default
     @JsonIgnore
     private List<FinalExam> finalExams = new ArrayList<>();
 
-    @OneToMany(mappedBy = "classEntity")
+    @OneToMany(mappedBy = "clazz")
     @Builder.Default
     @JsonIgnore
     private List<TeacherSubjectClass> teacherAssignments = new ArrayList<>();

@@ -2,7 +2,7 @@ package br.com.sinodal.gradeup.mapper.exam;
 
 import br.com.sinodal.gradeup.controller.request.exam.InsertExamRequest;
 import br.com.sinodal.gradeup.controller.response.exam.ExamResponse;
-import br.com.sinodal.gradeup.domain.Class;
+import br.com.sinodal.gradeup.domain.Clazz;
 import br.com.sinodal.gradeup.domain.Exam;
 import br.com.sinodal.gradeup.domain.Subject;
 import br.com.sinodal.gradeup.domain.Trimester;
@@ -14,9 +14,9 @@ import br.com.sinodal.gradeup.mapper.user.ListUserMapper;
 
 public class InsertExamMapper {
 
-    public static Exam toEntity(InsertExamRequest request, Class classEntity, Subject subject, User teacher, Trimester trimester) {
+    public static Exam toEntity(InsertExamRequest request, Clazz clazz, Subject subject, User teacher, Trimester trimester) {
         return Exam.builder()
-                .classEntity(classEntity)
+                .clazz(clazz)
                 .subject(subject)
                 .teacher(teacher)
                 .trimester(trimester)
@@ -29,7 +29,7 @@ public class InsertExamMapper {
     public static ExamResponse toResponse(Exam entity) {
         return ExamResponse.builder()
                 .id(entity.getId())
-                .classEntity(ListClassMapper.toResponse(entity.getClassEntity()))
+                .classEntity(ListClassMapper.toResponse(entity.getClazz()))
                 .subject(ListSubjectMapper.toResponse(entity.getSubject()))
                 .teacher(ListUserMapper.toResponse(entity.getTeacher()))
                 .trimester(ListTrimesterMapper.toResponse(entity.getTrimester()))

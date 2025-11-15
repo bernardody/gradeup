@@ -11,7 +11,7 @@ public class ListFinalExamMapper {
     public static FinalExamResponse toResponse(FinalExam entity) {
         return FinalExamResponse.builder()
                 .id(entity.getId())
-                .classEntity(ListClassMapper.toResponse(entity.getClassEntity()))
+                .classEntity(ListClassMapper.toResponse(entity.getClazz()))
                 .subject(ListSubjectMapper.toResponse(entity.getSubject()))
                 .teacher(ListUserMapper.toResponse(entity.getTeacher()))
                 .examDate(entity.getExamDate())

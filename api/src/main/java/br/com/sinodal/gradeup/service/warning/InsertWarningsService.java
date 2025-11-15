@@ -1,13 +1,9 @@
 package br.com.sinodal.gradeup.service.warning;
 
-import br.com.sinodal.gradeup.controller.request.exam.InsertExamRequest;
 import br.com.sinodal.gradeup.controller.request.warning.InsertWarningRequest;
-import br.com.sinodal.gradeup.controller.response.exam.ExamResponse;
 import br.com.sinodal.gradeup.controller.response.warning.WarningResponse;
 import br.com.sinodal.gradeup.domain.*;
-import br.com.sinodal.gradeup.domain.Class;
 import br.com.sinodal.gradeup.enums.UserType;
-import br.com.sinodal.gradeup.mapper.exam.InsertExamMapper;
 import br.com.sinodal.gradeup.mapper.warning.InsertWarningMapper;
 import br.com.sinodal.gradeup.repository.*;
 import br.com.sinodal.gradeup.service.user.AuthenticatedUserService;

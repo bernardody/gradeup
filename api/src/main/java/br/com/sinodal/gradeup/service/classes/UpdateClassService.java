@@ -2,7 +2,7 @@ package br.com.sinodal.gradeup.service.classes;
 
 import br.com.sinodal.gradeup.controller.request.classes.UpsertClassRequest;
 import br.com.sinodal.gradeup.controller.response.classes.ClassResponse;
-import br.com.sinodal.gradeup.domain.Class;
+import br.com.sinodal.gradeup.domain.Clazz;
 import br.com.sinodal.gradeup.domain.User;
 import br.com.sinodal.gradeup.enums.UserType;
 import br.com.sinodal.gradeup.mapper.classes.UpdateClassMapper;
@@ -27,14 +27,14 @@ public class UpdateClassService {
         if (!loggedUser.getType().equals(UserType.ADMIN))
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Você não tem permissão para editar essa turma");
 
-        Class aClass = classRepository.findById(id)
+        Clazz clazz = classRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Turma não encontrada"));
 
-        aClass.setName(request.getName());
-        aClass.setYear(request.getYear());
+        clazz.setName(request.getName());
+        clazz.setYear(request.getYear());
 
-        classRepository.save(aClass);
+        classRepository.save(clazz);
 
-        return UpdateClassMapper.toResponse(aClass);
+        return UpdateClassMapper.toResponse(clazz);
     }
 }

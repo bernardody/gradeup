@@ -2,7 +2,7 @@ package br.com.sinodal.gradeup.service.teachersubjectclass;
 
 import br.com.sinodal.gradeup.controller.request.teachersubjectclass.UpdateTeacherSubjectClassRequest;
 import br.com.sinodal.gradeup.controller.response.teachersubjectclass.TeacherSubjectClassResponse;
-import br.com.sinodal.gradeup.domain.Class;
+import br.com.sinodal.gradeup.domain.Clazz;
 import br.com.sinodal.gradeup.domain.Subject;
 import br.com.sinodal.gradeup.domain.TeacherSubjectClass;
 import br.com.sinodal.gradeup.domain.User;
@@ -47,12 +47,12 @@ public class UpdateTeacherSubjectClassService {
         Subject subject = subjectRepository.findById(request.getSubjectId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Matéria não encontrada"));
 
-        Class classEntity = classRepository.findById(request.getClassId())
+        Clazz clazz = classRepository.findById(request.getClassId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Turma não encontrada"));
 
         teacherSubjectClass.setTeacher(teacher);
         teacherSubjectClass.setSubject(subject);
-        teacherSubjectClass.setClassEntity(classEntity);
+        teacherSubjectClass.setClazz(clazz);
 
         teacherSubjectClassRepository.save(teacherSubjectClass);
 

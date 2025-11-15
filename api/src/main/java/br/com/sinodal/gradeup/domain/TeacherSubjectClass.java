@@ -34,5 +34,5 @@ public class TeacherSubjectClass {
     @NotNull
     @ManyToOne
     @JoinColumn(name = "class_id", nullable = false)
-    private Class classEntity;
+    private Clazz clazz;
 }

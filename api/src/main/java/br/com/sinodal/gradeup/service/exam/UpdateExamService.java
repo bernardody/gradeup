@@ -2,7 +2,7 @@ package br.com.sinodal.gradeup.service.exam;
 
 import br.com.sinodal.gradeup.controller.request.exam.UpdateExamRequest;
 import br.com.sinodal.gradeup.controller.response.exam.ExamResponse;
-import br.com.sinodal.gradeup.domain.Class;
+import br.com.sinodal.gradeup.domain.Clazz;
 import br.com.sinodal.gradeup.domain.Exam;
 import br.com.sinodal.gradeup.domain.Subject;
 import br.com.sinodal.gradeup.domain.Trimester;
@@ -41,7 +41,7 @@ public class UpdateExamService {
         Exam exam = examRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Prova não encontrada"));
 
-        Class classEntity = classRepository.findById(request.getClassId())
+        Clazz clazz = classRepository.findById(request.getClassId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Turma não encontrada"));
 
         Subject subject = subjectRepository.findById(request.getSubjectId())
@@ -50,13 +50,13 @@ public class UpdateExamService {
         Trimester trimester = trimesterRepository.findById(request.getTrimesterId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Trimestre não encontrado"));
 
-        if (!teacherSubjectClassRepository.existsByTeacherIdAndSubjectIdAndClassEntityId(
-                exam.getTeacher().getId(), subject.getId(), classEntity.getId())) {
+        if (!teacherSubjectClassRepository.existsByTeacherIdAndSubjectIdAndClazzId(
+                exam.getTeacher().getId(), subject.getId(), clazz.getId())) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN,
                     "Professor não está atribuído a esta matéria nesta turma");
         }
 
-        exam.setClassEntity(classEntity);
+        exam.setClazz(clazz);
         exam.setSubject(subject);
         exam.setTrimester(trimester);
         exam.setName(request.getName());

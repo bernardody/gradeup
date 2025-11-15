@@ -12,7 +12,7 @@ public class UpdateExamMapper {
     public static ExamResponse toResponse(Exam entity) {
         return ExamResponse.builder()
                 .id(entity.getId())
-                .classEntity(ListClassMapper.toResponse(entity.getClassEntity()))
+                .classEntity(ListClassMapper.toResponse(entity.getClazz()))
                 .subject(ListSubjectMapper.toResponse(entity.getSubject()))
                 .teacher(ListUserMapper.toResponse(entity.getTeacher()))
                 .trimester(ListTrimesterMapper.toResponse(entity.getTrimester()))

@@ -13,7 +13,7 @@ public class UpdateTeacherSubjectClassMapper {
                 .id(entity.getId())
                 .teacher(ListUserMapper.toResponse(entity.getTeacher()))
                 .subject(ListSubjectMapper.toResponse(entity.getSubject()))
-                .classEntity(ListClassMapper.toResponse(entity.getClassEntity()))
+                .classEntity(ListClassMapper.toResponse(entity.getClazz()))
                 .build();
     }
 }

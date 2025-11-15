@@ -2,7 +2,7 @@ package br.com.sinodal.gradeup.service.exam;
 
 import br.com.sinodal.gradeup.controller.request.exam.InsertExamRequest;
 import br.com.sinodal.gradeup.controller.response.exam.ExamResponse;
-import br.com.sinodal.gradeup.domain.Class;
+import br.com.sinodal.gradeup.domain.Clazz;
 import br.com.sinodal.gradeup.domain.Exam;
 import br.com.sinodal.gradeup.domain.Subject;
 import br.com.sinodal.gradeup.domain.Trimester;
@@ -40,7 +40,7 @@ public class InsertExamService {
         if (!loggedUser.getType().equals(UserType.TEACHER))
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Você não tem permissão para criar provas");
 
-        Class classEntity = classRepository.findById(request.getClassId())
+        Clazz clazz = classRepository.findById(request.getClassId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Turma não encontrada"));
 
         Subject subject = subjectRepository.findById(request.getSubjectId())
@@ -52,8 +52,8 @@ public class InsertExamService {
         if (!teacher.getType().equals(UserType.TEACHER))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "O usuário informado não é um professor");
 
-        if (!teacherSubjectClassRepository.existsByTeacherIdAndSubjectIdAndClassEntityId(
-                teacher.getId(), subject.getId(), classEntity.getId())) {
+        if (!teacherSubjectClassRepository.existsByTeacherIdAndSubjectIdAndClazzId(
+                teacher.getId(), subject.getId(), clazz.getId())) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN,
                     "Professor não está atribuído a esta matéria nesta turma");
         }
@@ -61,7 +61,7 @@ public class InsertExamService {
         Trimester trimester = trimesterRepository.findById(request.getTrimesterId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Trimestre não encontrado"));
 
-        Exam exam = InsertExamMapper.toEntity(request, classEntity, subject, teacher, trimester);
+        Exam exam = InsertExamMapper.toEntity(request, clazz, subject, teacher, trimester);
 
         examRepository.save(exam);
 

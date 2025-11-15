@@ -2,7 +2,7 @@ package br.com.sinodal.gradeup.mapper.finalexam;
 
 import br.com.sinodal.gradeup.controller.request.finalexam.InsertFinalExamRequest;
 import br.com.sinodal.gradeup.controller.response.finalexam.FinalExamResponse;
-import br.com.sinodal.gradeup.domain.Class;
+import br.com.sinodal.gradeup.domain.Clazz;
 import br.com.sinodal.gradeup.domain.FinalExam;
 import br.com.sinodal.gradeup.domain.Subject;
 import br.com.sinodal.gradeup.domain.User;
@@ -12,9 +12,9 @@ import br.com.sinodal.gradeup.mapper.user.ListUserMapper;
 
 public class InsertFinalExamMapper {
 
-    public static FinalExam toEntity(InsertFinalExamRequest request, Class classEntity, Subject subject, User teacher) {
+    public static FinalExam toEntity(InsertFinalExamRequest request, Clazz clazz, Subject subject, User teacher) {
         return FinalExam.builder()
-                .classEntity(classEntity)
+                .clazz(clazz)
                 .subject(subject)
                 .teacher(teacher)
                 .examDate(request.getExamDate())
@@ -26,7 +26,7 @@ public class InsertFinalExamMapper {
     public static FinalExamResponse toResponse(FinalExam entity) {
         return FinalExamResponse.builder()
                 .id(entity.getId())
-                .classEntity(ListClassMapper.toResponse(entity.getClassEntity()))
+                .classEntity(ListClassMapper.toResponse(entity.getClazz()))
                 .subject(ListSubjectMapper.toResponse(entity.getSubject()))
                 .teacher(ListUserMapper.toResponse(entity.getTeacher()))
                 .examDate(entity.getExamDate())
