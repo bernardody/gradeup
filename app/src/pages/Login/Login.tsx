@@ -7,7 +7,7 @@ export default function Login() {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     // Aqui depois tu vai validar o login com a API
-    navigate("/HomeStudent"); // To usando o alunos de teste por enquanto, com a validacao vai ter os dois caminhos possiveis
+    navigate("/HomeStudent"); 
   };
 
 
