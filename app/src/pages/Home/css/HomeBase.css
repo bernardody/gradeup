@@ -1,0 +1,27 @@
+.homestudent {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+}
+
+.hometeacher {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+}
+
+.base {
+  flex: 1;
+  padding: 40px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.base h1 {
+  font-size: 42px;
+  margin: 0;
+  font-weight: 700;
+}
