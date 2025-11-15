@@ -1,12 +1,13 @@
 package br.com.sinodal.gradeup.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
@@ -15,7 +16,8 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @NoArgsConstructor
 @Getter
 @Setter
-@EqualsAndHashCode(of = "id") @ToString(of = "id")
+@EqualsAndHashCode(of = "id")
+@ToString(of = "id")
 @Entity
 @Table(name = "Classes")
 public class Class {
@@ -29,4 +31,24 @@ public class Class {
 
     @NotNull
     private int year;
+
+    @OneToMany(mappedBy = "classEntity")
+    @Builder.Default
+    @JsonIgnore
+    private List<Registration> registrations = new ArrayList<>();
+
+    @OneToMany(mappedBy = "classEntity")
+    @Builder.Default
+    @JsonIgnore
+    private List<Exam> exams = new ArrayList<>();
+
+    @OneToMany(mappedBy = "classEntity")
+    @Builder.Default
+    @JsonIgnore
+    private List<FinalExam> finalExams = new ArrayList<>();
+
+    @OneToMany(mappedBy = "classEntity")
+    @Builder.Default
+    @JsonIgnore
+    private List<TeacherSubjectClass> teacherAssignments = new ArrayList<>();
 }

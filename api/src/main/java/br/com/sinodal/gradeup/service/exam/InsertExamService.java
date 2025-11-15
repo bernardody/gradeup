@@ -12,6 +12,7 @@ import br.com.sinodal.gradeup.mapper.exam.InsertExamMapper;
 import br.com.sinodal.gradeup.repository.ClassRepository;
 import br.com.sinodal.gradeup.repository.ExamRepository;
 import br.com.sinodal.gradeup.repository.SubjectRepository;
+import br.com.sinodal.gradeup.repository.TeacherSubjectClassRepository;
 import br.com.sinodal.gradeup.repository.TrimesterRepository;
 import br.com.sinodal.gradeup.repository.UserRepository;
 import br.com.sinodal.gradeup.service.user.AuthenticatedUserService;
@@ -29,6 +30,7 @@ public class InsertExamService {
     private final SubjectRepository subjectRepository;
     private final UserRepository userRepository;
     private final TrimesterRepository trimesterRepository;
+    private final TeacherSubjectClassRepository teacherSubjectClassRepository;
     private final AuthenticatedUserService authenticatedUserService;
 
     public ExamResponse insert(InsertExamRequest request) {
@@ -49,6 +51,12 @@ public class InsertExamService {
 
         if (!teacher.getType().equals(UserType.TEACHER))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "O usuário informado não é um professor");
+
+        if (!teacherSubjectClassRepository.existsByTeacherIdAndSubjectIdAndClassEntityId(
+                teacher.getId(), subject.getId(), classEntity.getId())) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN,
+                    "Professor não está atribuído a esta matéria nesta turma");
+        }
 
         Trimester trimester = trimesterRepository.findById(request.getTrimesterId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Trimestre não encontrado"));

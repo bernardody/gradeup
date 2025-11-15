@@ -1,12 +1,8 @@
 package br.com.sinodal.gradeup.domain;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
@@ -18,22 +14,25 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @EqualsAndHashCode(of = "id")
 @ToString(of = "id")
 @Entity
-@Table(name = "Warnings")
-public class Warning {
+@Table(name = "teacher_subject_class")
+public class TeacherSubjectClass {
+
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
     @NotNull
-    @OneToOne
-    @JoinColumn(name = "exam_id")
-    private Exam exam;
-
-    @NotBlank
-    private String title;
-
-    private String content;
+    @ManyToOne
+    @JoinColumn(name = "teacher_id", nullable = false)
+    private User teacher;
 
     @NotNull
-    private LocalDateTime createdAt;
+    @ManyToOne
+    @JoinColumn(name = "subject_id", nullable = false)
+    private Subject subject;
+
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "class_id", nullable = false)
+    private Class classEntity;
 }
