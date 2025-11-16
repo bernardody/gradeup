@@ -32,7 +32,6 @@ public class Warning {
     @NotBlank
     private String title;
 
-    @NotBlank
     private String content;
 
     @NotNull

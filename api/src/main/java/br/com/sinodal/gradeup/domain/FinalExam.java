@@ -1,11 +1,14 @@
 package br.com.sinodal.gradeup.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
@@ -27,7 +30,7 @@ public class FinalExam {
     @NotNull
     @ManyToOne
     @JoinColumn(name = "class_id", nullable = false)
-    private Class classEntity;
+    private Clazz clazz;
 
     @NotNull
     @ManyToOne
@@ -48,4 +51,9 @@ public class FinalExam {
 
     @NotNull
     private BigDecimal minScore;
+
+    @OneToMany(mappedBy = "finalExam")
+    @Builder.Default
+    @JsonIgnore
+    private List<FinalGrade> finalGrades = new ArrayList<>();
 }

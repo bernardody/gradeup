@@ -2,7 +2,7 @@ package br.com.sinodal.gradeup.service.registration;
 
 import br.com.sinodal.gradeup.controller.request.registration.UpsertRegistrationRequest;
 import br.com.sinodal.gradeup.controller.response.registration.RegistrationResponse;
-import br.com.sinodal.gradeup.domain.Class;
+import br.com.sinodal.gradeup.domain.Clazz;
 import br.com.sinodal.gradeup.domain.Registration;
 import br.com.sinodal.gradeup.domain.User;
 import br.com.sinodal.gradeup.enums.UserType;
@@ -41,15 +41,15 @@ public class UpdateRegistrationService {
         if (!student.getType().equals(UserType.STUDENT))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "O usuário informado não é um aluno");
 
-        Class classEntity = classRepository.findById(request.getClassId())
+        Clazz clazz = classRepository.findById(request.getClassId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Turma não encontrada"));
 
-        if (registrationRepository.existsByStudentIdAndClassId(request.getStudentId(), request.getClassId())) {
+        if (registrationRepository.existsByStudentIdAndClazzId(request.getStudentId(), request.getClassId())) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Este aluno já tem está nessa turma");
         }
 
         registration.setStudent(student);
-        registration.setClassEntity(classEntity);
+        registration.setClazz(clazz);
 
         registrationRepository.save(registration);
 

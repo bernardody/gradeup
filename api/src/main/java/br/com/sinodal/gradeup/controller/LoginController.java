@@ -51,7 +51,7 @@ public class LoginController {
 
         String token = jwtEncoder.encode(JwtEncoderParameters.from(jwt)).getTokenValue();
 
-        return ResponseEntity.ok(new LoginResponse(token, expiresIn));
+        return ResponseEntity.ok(new LoginResponse(token, expiresIn, usuario.getType()));
     }
 
     private boolean isLoginCorreto(String password, String savedPassowrd) {

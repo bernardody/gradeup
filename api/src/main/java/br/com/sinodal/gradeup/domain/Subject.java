@@ -1,11 +1,12 @@
 package br.com.sinodal.gradeup.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
@@ -26,4 +27,19 @@ public class Subject {
 
     @NotBlank
     private String name;
+
+    @OneToMany(mappedBy = "subject")
+    @Builder.Default
+    @JsonIgnore
+    private List<Exam> exams = new ArrayList<>();
+
+    @OneToMany(mappedBy = "subject")
+    @Builder.Default
+    @JsonIgnore
+    private List<FinalExam> finalExams = new ArrayList<>();
+
+    @OneToMany(mappedBy = "subject")
+    @Builder.Default
+    @JsonIgnore
+    private List<TeacherSubjectClass> teacherAssignments = new ArrayList<>();
 }

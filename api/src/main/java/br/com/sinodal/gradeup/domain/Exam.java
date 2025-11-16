@@ -1,5 +1,6 @@
 package br.com.sinodal.gradeup.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -7,6 +8,8 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
@@ -28,7 +31,7 @@ public class Exam {
     @NotNull
     @ManyToOne
     @JoinColumn(name = "class_id", nullable = false)
-    private Class classEntity;
+    private Clazz clazz;
 
     @NotNull
     @ManyToOne
@@ -55,4 +58,13 @@ public class Exam {
     @NotNull
     @Column(name = "exam_date")
     private LocalDate examDate;
+
+    @OneToMany(mappedBy = "exam")
+    @Builder.Default
+    @JsonIgnore
+    private List<Grade> grades = new ArrayList<>();
+
+    @OneToOne(mappedBy = "exam")
+    @JsonIgnore
+    private Warning warning;
 }

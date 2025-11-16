@@ -1,6 +1,6 @@
 package br.com.sinodal.gradeup.service.classes;
 
-import br.com.sinodal.gradeup.domain.Class;
+import br.com.sinodal.gradeup.domain.Clazz;
 import br.com.sinodal.gradeup.domain.User;
 import br.com.sinodal.gradeup.enums.UserType;
 import br.com.sinodal.gradeup.repository.ClassRepository;
@@ -24,9 +24,9 @@ public class DeleteClassService {
         if (!loggedUser.getType().equals(UserType.ADMIN))
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Você não tem permissão para deletar essa turma");
 
-        Class aClass = classRepository.findById(id)
+        Clazz clazz = classRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Turma não encontrada"));
 
-        classRepository.deleteById(aClass.getId());
+        classRepository.deleteById(clazz.getId());
     }
 }

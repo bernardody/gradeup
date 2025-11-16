@@ -2,7 +2,7 @@ package br.com.sinodal.gradeup.service.classes;
 
 import br.com.sinodal.gradeup.controller.request.classes.UpsertClassRequest;
 import br.com.sinodal.gradeup.controller.response.classes.ClassResponse;
-import br.com.sinodal.gradeup.domain.Class;
+import br.com.sinodal.gradeup.domain.Clazz;
 import br.com.sinodal.gradeup.domain.User;
 import br.com.sinodal.gradeup.enums.UserType;
 import br.com.sinodal.gradeup.mapper.classes.InsertClassMapper;
@@ -27,10 +27,10 @@ public class InsertClassService {
         if (!loggedUser.getType().equals(UserType.ADMIN))
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Você não tem permissão para criar turmas");
 
-        Class aClass = InsertClassMapper.toEntity(request);
+        Clazz clazz = InsertClassMapper.toEntity(request);
 
-        classRepository.save(aClass);
+        classRepository.save(clazz);
 
-        return InsertClassMapper.toResponse(aClass);
+        return InsertClassMapper.toResponse(clazz);
     }
 }
