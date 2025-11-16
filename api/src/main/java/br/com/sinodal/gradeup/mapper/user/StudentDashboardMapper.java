@@ -5,7 +5,7 @@ import br.com.sinodal.gradeup.controller.response.exam.ExamGradeResponse;
 import br.com.sinodal.gradeup.controller.response.finalexam.FinalExamGradeResponse;
 import br.com.sinodal.gradeup.controller.response.subject.SubjectGradesResponse;
 import br.com.sinodal.gradeup.controller.response.trimester.TrimesterGradesResponse;
-import br.com.sinodal.gradeup.controller.response.user.StudentDashboardResponse;
+import br.com.sinodal.gradeup.controller.response.user.student.StudentDashboardResponse;
 import br.com.sinodal.gradeup.domain.*;
 
 import java.math.BigDecimal;

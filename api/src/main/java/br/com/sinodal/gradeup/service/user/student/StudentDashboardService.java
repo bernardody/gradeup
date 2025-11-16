@@ -1,11 +1,12 @@
-package br.com.sinodal.gradeup.service.user;
+package br.com.sinodal.gradeup.service.user.student;
 
 import br.com.sinodal.gradeup.controller.response.subject.SubjectGradesResponse;
-import br.com.sinodal.gradeup.controller.response.user.*;
+import br.com.sinodal.gradeup.controller.response.user.student.StudentDashboardResponse;
 import br.com.sinodal.gradeup.domain.*;
 import br.com.sinodal.gradeup.enums.UserType;
 import br.com.sinodal.gradeup.mapper.user.StudentDashboardMapper;
 import br.com.sinodal.gradeup.repository.*;
+import br.com.sinodal.gradeup.service.user.AuthenticatedUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,6 @@ public class StudentDashboardService {
 
     public StudentDashboardResponse getDashboard() {
         User student = authenticatedUserService.get();
-        validateStudent(student);
 
         Registration registration = findStudentRegistration(student.getId());
         Clazz classEntity = registration.getClazz();
@@ -53,13 +53,6 @@ public class StudentDashboardService {
                 .collect(Collectors.toList());
 
         return StudentDashboardMapper.toResponse(student, classEntity, subjectResponses);
-    }
-
-
-    private void validateStudent(User student) {
-        if (!student.getType().equals(UserType.STUDENT)) {
-            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Acesso negado");
-        }
     }
 
     private Registration findStudentRegistration(Long studentId) {
