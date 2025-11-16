@@ -33,7 +33,7 @@ public class LoginController {
     public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginRequest loginRequest) {
         Optional<User> optUser = searchUserService.buscarPorEmail(loginRequest.getEmail());
 
-        if (optUser.isEmpty() || !isLoginCorreto(loginRequest.getSenha(), optUser.get().getPassword())) {
+        if (optUser.isEmpty() || !isLoginCorreto(loginRequest.getPassword(), optUser.get().getPassword())) {
             throw new BadCredentialsException("Usuário ou senha incorretos!");
         }
 
