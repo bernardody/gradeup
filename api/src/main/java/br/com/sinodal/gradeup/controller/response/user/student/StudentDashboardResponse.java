@@ -1,4 +1,4 @@
-package br.com.sinodal.gradeup.controller.response.user;
+package br.com.sinodal.gradeup.controller.response.user.student;
 
 import br.com.sinodal.gradeup.controller.response.classes.ClassInfoResponse;
 import br.com.sinodal.gradeup.controller.response.subject.SubjectGradesResponse;
