@@ -18,10 +18,12 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  align-items: center; 
 }
 
 .base h1 {
   font-size: 42px;
   margin: 0;
   font-weight: 700;
+  text-align: center; 
 }
