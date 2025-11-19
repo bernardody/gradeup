@@ -1,0 +1,12 @@
+.subjects-container {
+  display: flex;
+}
+
+.subject-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas por linha */
+  gap: 40px; /* espaçamento entre cards */
+  width: 100%;
+  padding: 40px;
+  margin-left: 100px; /* espaço da sidebar */
+}
