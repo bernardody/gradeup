@@ -1,7 +1,12 @@
 import './css/Buttons.css';
+import { useNavigate } from "react-router-dom";
+
 
 export default function Inicio() {
+  const navigate = useNavigate();
   return (
-    <button id="sideBarBtn">Inicio</button>
+    <button id="sideBarBtn" onClick={() => navigate("/HomeStudent")}>
+      Início
+    </button>
   );
 }
