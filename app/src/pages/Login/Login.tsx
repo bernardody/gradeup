@@ -21,11 +21,16 @@ export default function Login() {
     });
 
     if (!response.ok) {
-      alert("Erro no login — veja o console.");
+      alert("Erro no login");
       return;
     }
 
     const data = await response.json();
+    
+    if (data.accessToken) {
+      localStorage.removeItem('token');
+      localStorage.setItem('token', data.accessToken);
+    }
 
     if (data.type === "STUDENT") {
       navigate("/HomeStudent", { state: data });
