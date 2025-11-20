@@ -3,7 +3,7 @@ import Login from "../pages/Login/Login";
 import HomeStudent from "../pages/Home/HomeStudent";
 import HomeTeacher from "../pages/Home/HomeTeacher";
 import Subjects from "../pages/Subjects/Subjects";
-import Matematica from "../pages/Subjects/Math";
+import SubjectDetails from "../pages/Subjects/SubjectDetails";
 
 export default function AppRoutes() {
   return (
@@ -12,7 +12,8 @@ export default function AppRoutes() {
       <Route path="/HomeStudent" element={<HomeStudent />} />
       <Route path="/HomeTeacher" element={<HomeTeacher />} />
       <Route path="/Subjects" element={<Subjects />} />
-      <Route path="/Subjects/Math" element={<Matematica />} /> 
+      <Route path="/subjects/:subjectName" element={<SubjectDetails />} />
+      
     </Routes>
   );
 }
