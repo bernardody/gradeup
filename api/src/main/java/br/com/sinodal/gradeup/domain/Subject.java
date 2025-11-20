@@ -27,19 +27,4 @@ public class Subject {
 
     @NotBlank
     private String name;
-
-    @OneToMany(mappedBy = "subject")
-    @Builder.Default
-    @JsonIgnore
-    private List<Exam> exams = new ArrayList<>();
-
-    @OneToMany(mappedBy = "subject")
-    @Builder.Default
-    @JsonIgnore
-    private List<FinalExam> finalExams = new ArrayList<>();
-
-    @OneToMany(mappedBy = "subject")
-    @Builder.Default
-    @JsonIgnore
-    private List<TeacherSubjectClass> teacherAssignments = new ArrayList<>();
 }

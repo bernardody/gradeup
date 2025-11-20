@@ -9,6 +9,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/subjects")
@@ -19,10 +21,16 @@ public class SubjectController {
     private final InsertSubjectService createSubjectService;
     private final UpdateSubjectService updateSubjectService;
     private final DeleteSubjectService deleteSubjectService;
+    private final ListSubjectsByStudentService listSubjectsByStudentService;
 
     @GetMapping
     public Page<SubjectResponse> listSubjects(Pageable pageable) {
         return listSubjectService.list(pageable);
+    }
+
+    @GetMapping("/my-subjects")
+    public List<SubjectResponse> listSubjectsByStudent() {
+        return listSubjectsByStudentService.list();
     }
 
     @GetMapping("/{id}")

@@ -31,24 +31,4 @@ public class Clazz {
 
     @NotNull
     private int year;
-
-    @OneToMany(mappedBy = "clazz")
-    @Builder.Default
-    @JsonIgnore
-    private List<Registration> registrations = new ArrayList<>();
-
-    @OneToMany(mappedBy = "clazz")
-    @Builder.Default
-    @JsonIgnore
-    private List<Exam> exams = new ArrayList<>();
-
-    @OneToMany(mappedBy = "clazz")
-    @Builder.Default
-    @JsonIgnore
-    private List<FinalExam> finalExams = new ArrayList<>();
-
-    @OneToMany(mappedBy = "clazz")
-    @Builder.Default
-    @JsonIgnore
-    private List<TeacherSubjectClass> teacherAssignments = new ArrayList<>();
 }
