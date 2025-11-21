@@ -21,15 +21,15 @@ public class ListSubjectsByStudentService {
     private final SubjectRepository subjectRepository;
     private final AuthenticatedUserService authenticatedUserService;
 
-    public List<SubjectResponse> list() {
+    public List<SubjectResponse> list(Long classId) {
 
         User loggedUser = authenticatedUserService.get();
         List<Subject> subjects;
 
         if (loggedUser.getType() == UserType.STUDENT) {
-            subjects = subjectRepository.findSubjectsByStudentId(loggedUser.getId());
+            subjects = subjectRepository.findSubjectByStudentIdAndClassId(loggedUser.getId(), classId);
         } else if (loggedUser.getType() == UserType.TEACHER) {
-            subjects = subjectRepository.findSubjectsByTeacherId(loggedUser.getId());
+            subjects = subjectRepository.findSubjectByTeacherIdAndClassId(loggedUser.getId(), classId);
         } else throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Você não tem matérias");
 
         return subjects.stream().map(ListSubjectMapper::toResponse).toList();

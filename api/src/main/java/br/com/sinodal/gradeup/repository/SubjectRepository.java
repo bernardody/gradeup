@@ -8,20 +8,19 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface SubjectRepository extends JpaRepository<Subject, Long> {
-    @Query("""
-            SELECT DISTINCT s FROM Subject s
-            JOIN TeacherSubjectClass tsc ON tsc.subject.id = s.id
-            JOIN Registration r ON r.clazz.id = tsc.clazz.id
-            WHERE r.student.id = :studentId
-            ORDER BY s.id
-            """)
-    List<Subject> findSubjectsByStudentId(@Param("studentId") Long studentId);
 
     @Query("""
             SELECT DISTINCT s FROM Subject s
             JOIN TeacherSubjectClass tsc ON tsc.subject.id = s.id
-            WHERE tsc.teacher.id = :teacherId
-            ORDER BY s.id
+            JOIN Registration r ON r.clazz.id = tsc.clazz.id
+            WHERE r.student.id = :studentId AND r.clazz.id = :classId
             """)
-    List<Subject> findSubjectsByTeacherId(@Param("teacherId") Long teacherId);
+    List<Subject> findSubjectByStudentIdAndClassId(@Param("studentId") Long studentId, @Param("classId") Long classId);
+
+    @Query("""
+            SELECT DISTINCT s FROM Subject s
+            JOIN TeacherSubjectClass tsc ON tsc.subject.id = s.id
+            WHERE tsc.teacher.id = :teacherId AND tsc.clazz.id = :classId
+            """)
+    List<Subject> findSubjectByTeacherIdAndClassId(@Param("teacherId") Long teacherId, @Param("classId") Long classId);
 }

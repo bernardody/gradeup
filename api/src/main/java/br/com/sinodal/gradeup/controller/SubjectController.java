@@ -29,8 +29,8 @@ public class SubjectController {
     }
 
     @GetMapping("/my-subjects")
-    public List<SubjectResponse> listSubjectsByStudent() {
-        return listSubjectsByStudentService.list();
+    public List<SubjectResponse> listMySubjects(@RequestParam Long classId) {
+        return listSubjectsByStudentService.list(classId);
     }
 
     @GetMapping("/{id}")
