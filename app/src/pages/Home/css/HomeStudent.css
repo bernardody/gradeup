@@ -13,7 +13,7 @@
   font-size: 18px;
   font-weight: 500;
   color: black;
-  margin-left: 90px;
+  margin-left: 10px;
 }
 
 .studentInfo span {
@@ -26,7 +26,7 @@
 
 .alertsConteiner {
   position: absolute;
-  right: 40px;
+  margin-left: 100%;
   top: 70px;
 }
 
@@ -35,4 +35,30 @@
   width: 100%;
   min-height: 100vh;
   font-family: 'Poppins', sans-serif;
+  position: relative;
+}
+
+.base {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-top: 50px;
+  flex: 1;
+}
+
+.graphic-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  margin-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 300px;
+}
+
+.graphic {
+  width: 100%;
+  max-width: 700px;
 }

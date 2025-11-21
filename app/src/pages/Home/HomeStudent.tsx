@@ -3,6 +3,7 @@ import Alerts from "../../Components/Alerts/Alerts";
 import HomeBase from "../../Components/HomeBase/HomeBase";
 import "./css/HomeStudent.css";
 import { useState, useEffect } from "react";
+import Graphic from "../../Components/Graphic/Graphic";
 
 interface ClassInfo {
     id?: number;
@@ -65,6 +66,10 @@ export default function HomeStudent() {
 
     return (
         <div className="homestudent">
+        <div className="sideBar">
+            <StudentSideBar />
+        </div>
+        <div className="main-content">
             <div className="base">
                 <HomeBase />
                 <div className="studentInfo">
@@ -72,15 +77,18 @@ export default function HomeStudent() {
                     <p>Turma: <span id="turma">{studentData?.classInfo?.name || 'N/A'}</span></p>
                 </div>
             </div>
-            <div className="alertsConteiner">
-                <p id="alertsTitle">Avisos da semana</p>
-                <div className="alerts">
-                    <Alerts />
+            <div className="graphic-container">
+                <div className="graphic">
+                    <Graphic />
                 </div>
             </div>
-            <div className="sideBar">
-                <StudentSideBar />
+        </div>
+        <div className="alertsConteiner">
+            <p id="alertsTitle">Avisos da semana</p>
+            <div className="alerts">
+                <Alerts />
             </div>
         </div>
+    </div>
     );
 }
