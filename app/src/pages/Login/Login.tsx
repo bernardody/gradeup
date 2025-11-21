@@ -28,8 +28,8 @@ export default function Login() {
     const data = await response.json();
     
     if (data.accessToken) {
-      localStorage.removeItem('token');
       localStorage.setItem('token', data.accessToken);
+      localStorage.setItem('type', data.type);
     }
 
     if (data.type === "STUDENT") {
