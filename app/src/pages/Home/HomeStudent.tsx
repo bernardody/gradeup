@@ -1,6 +1,6 @@
-import StudentSideBar from "../SideBar/Student-SideBar";
-import Alerts from "./Alerts";
-import HomeBase from "./HomeBase";
+import StudentSideBar from "../../Components/SideBar/Student-SideBar";
+import Alerts from "../../Components/Alerts/Alerts";
+import HomeBase from "../../Components/HomeBase/HomeBase";
 import "./css/HomeStudent.css";
 import { useState, useEffect } from "react";
 

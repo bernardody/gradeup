@@ -14,3 +14,10 @@
   justify-content: center;
   width: 100%;
 }
+
+.hometeacher {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+}

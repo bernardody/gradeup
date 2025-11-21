@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import StudentSideBar from "../SideBar/Student-SideBar";
+import StudentSideBar from "../../Components/SideBar/Student-SideBar";
 import "../Subjects/css/subjects.css";
-import SubjectCard from "../../Components/SubjectCard";
+import SubjectCard from "../../Components/SubjectCard/SubjectCard";
 
 interface Subject {
   id: number;
