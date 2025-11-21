@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import StudentSideBar from "../SideBar/Student-SideBar";
+import StudentSideBar from "../../Components/SideBar/Student-SideBar";
 import "../Subjects/css/SubjectDetails.css";
-import GradeBox from "../../Components/Gradebox";
+import GradeBox from "../../Components/Gradebox/Gradebox";
 
 interface GradeItem {
   label: string;

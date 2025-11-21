@@ -1,8 +1,7 @@
-import TeacherSideBar from "../SideBar/Teacher-SideBar";
-import HomeBase from "./HomeBase";
+import TeacherSideBar from "../../Components/SideBar/Teacher-SideBar";
+import HomeBase from "../../Components/HomeBase/HomeBase";
 import "./css/HomeTeacher.css";
-import "./css/HomeBase.css";
-import Graphic from "../Home/Graphic"
+import Graphic from "../../Components/Graphic/Graphic"
 
 export default function HomeTeacher() {
     return (
