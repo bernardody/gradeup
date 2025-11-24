@@ -28,7 +28,7 @@ public class ClassController {
         return listClassService.list(pageable);
     }
 
-    @GetMapping
+    @GetMapping("/my-classes")
     public List<ClassResponse> listMyClasses() {
         return listMyClassesService.list();
     }
