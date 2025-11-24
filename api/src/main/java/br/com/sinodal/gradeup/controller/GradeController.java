@@ -2,6 +2,7 @@ package br.com.sinodal.gradeup.controller;
 
 import br.com.sinodal.gradeup.controller.request.grade.InsertGradeRequest;
 import br.com.sinodal.gradeup.controller.request.grade.UpdateGradeRequest;
+import br.com.sinodal.gradeup.controller.response.grade.GradeByStudentResponse;
 import br.com.sinodal.gradeup.controller.response.grade.GradeResponse;
 import br.com.sinodal.gradeup.service.grade.*;
 import lombok.RequiredArgsConstructor;
@@ -10,12 +11,15 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/grades")
 public class GradeController {
 
     private final ListGradeService listGradeService;
+    private final ListMyGradesBySubjectService listMyGradesBySubjectService;
     private final GetGradeService getGradeService;
     private final InsertGradeService insertGradeService;
     private final UpdateGradeService updateGradeService;
@@ -24,6 +28,11 @@ public class GradeController {
     @GetMapping
     public Page<GradeResponse> listGrades(Pageable pageable) {
         return listGradeService.list(pageable);
+    }
+
+    @GetMapping("/my-grades")
+    public List<GradeByStudentResponse> listMyGradesBySubject(@RequestParam Long subjectId) {
+        return listMyGradesBySubjectService.list(subjectId);
     }
 
     @GetMapping("/{id}")
