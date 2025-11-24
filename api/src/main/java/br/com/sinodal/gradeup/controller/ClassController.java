@@ -9,12 +9,15 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/classes")
 public class ClassController {
 
     private final ListClassService listClassService;
+    private final ListMyClassesService listMyClassesService;
     private final GetClassService getClassService;
     private final InsertClassService insertClassService;
     private final UpdateClassService updateClassService;
@@ -23,6 +26,11 @@ public class ClassController {
     @GetMapping
     public Page<ClassResponse> listClasses(Pageable pageable) {
         return listClassService.list(pageable);
+    }
+
+    @GetMapping("/my-classes")
+    public List<ClassResponse> listMyClasses() {
+        return listMyClassesService.list();
     }
 
     @GetMapping("/{id}")

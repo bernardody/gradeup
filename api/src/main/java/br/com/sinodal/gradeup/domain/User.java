@@ -40,34 +40,4 @@ public class User {
     @NotNull
     @Enumerated(EnumType.STRING)
     private UserType type;
-
-    @OneToMany(mappedBy = "student")
-    @Builder.Default
-    @JsonIgnore
-    private List<Registration> registrations = new ArrayList<>();
-
-    @OneToMany(mappedBy = "student")
-    @Builder.Default
-    @JsonIgnore
-    private List<Grade> grades = new ArrayList<>();
-
-    @OneToMany(mappedBy = "student")
-    @Builder.Default
-    @JsonIgnore
-    private List<FinalGrade> finalGrades = new ArrayList<>();
-
-    @OneToMany(mappedBy = "teacher")
-    @Builder.Default
-    @JsonIgnore
-    private List<Exam> examsCreated = new ArrayList<>();
-
-    @OneToMany(mappedBy = "teacher")
-    @Builder.Default
-    @JsonIgnore
-    private List<FinalExam> finalExamsCreated = new ArrayList<>();
-
-    @OneToMany(mappedBy = "teacher")
-    @Builder.Default
-    @JsonIgnore
-    private List<TeacherSubjectClass> teacherAssignments = new ArrayList<>();
 }
