@@ -20,6 +20,7 @@ public class GradeController {
 
     private final ListGradeService listGradeService;
     private final ListMyGradesBySubjectService listMyGradesBySubjectService;
+    private final ListGradesByExamService listGradesByExamService;
     private final GetGradeService getGradeService;
     private final InsertGradeService insertGradeService;
     private final UpdateGradeService updateGradeService;
@@ -33,6 +34,11 @@ public class GradeController {
     @GetMapping("/my-grades")
     public List<GradeByStudentResponse> listMyGradesBySubject(@RequestParam Long subjectId) {
         return listMyGradesBySubjectService.list(subjectId);
+    }
+
+    @GetMapping("/by-exam/{examId}")
+    public List<GradeResponse> listGradesByExam(@PathVariable Long examId) {
+        return listGradesByExamService.list(examId);
     }
 
     @GetMapping("/{id}")
