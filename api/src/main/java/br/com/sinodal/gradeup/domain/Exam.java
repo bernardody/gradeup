@@ -58,13 +58,4 @@ public class Exam {
     @NotNull
     @Column(name = "exam_date")
     private LocalDate examDate;
-
-    @OneToMany(mappedBy = "exam")
-    @Builder.Default
-    @JsonIgnore
-    private List<Grade> grades = new ArrayList<>();
-
-    @OneToOne(mappedBy = "exam")
-    @JsonIgnore
-    private Warning warning;
 }
