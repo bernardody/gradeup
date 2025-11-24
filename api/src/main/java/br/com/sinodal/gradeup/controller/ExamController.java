@@ -10,6 +10,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/exams")
@@ -17,6 +19,7 @@ public class ExamController {
 
     private final ListExamService listExamService;
     private final GetExamService getExamService;
+    private final ListExamsForTeacherService listExamsForTeacherService;
     private final InsertExamService insertExamService;
     private final UpdateExamService updateExamService;
     private final DeleteExamService deleteExamService;
@@ -29,6 +32,11 @@ public class ExamController {
     @GetMapping("/{id}")
     public ExamResponse getExam(@PathVariable Long id) {
         return getExamService.byId(id);
+    }
+
+    @GetMapping("/by-teacher")
+    public List<ExamResponse> listExamsTeacher(@RequestParam Long classId, @RequestParam Long subjectId, @RequestParam Long trimesterId) {
+        return  listExamsForTeacherService.list(classId, subjectId, trimesterId);
     }
 
     @PostMapping

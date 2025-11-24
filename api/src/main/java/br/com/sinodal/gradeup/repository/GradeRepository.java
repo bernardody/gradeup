@@ -22,4 +22,11 @@ public interface GradeRepository extends JpaRepository<Grade, Long> {
             ORDER BY e.examDate DESC
             """)
     List<Grade> findGradesByStudentIdAndSubjectId(@Param("studentId") Long studentId, @Param("subjectId") Long subjectId);
+
+    @Query("SELECT g FROM Grade g " +
+            "JOIN FETCH g.exam e " +
+            "JOIN FETCH g.student s " +
+            "WHERE e.id = :examId " +
+            "ORDER BY s.name ASC")
+    List<Grade> findByExamIdOrderByStudentNameAsc(@Param("examId") Long examId);
 }
