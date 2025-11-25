@@ -3,33 +3,6 @@
   flex-shrink: 0;
 }
 
-.studentInfo {
-  display: flex;
-  gap: 40px;
-  margin-top: -10px;
-}
-
-.studentInfo p {
-  font-size: 18px;
-  font-weight: 500;
-  color: black;
-  margin-left: 10px;
-}
-
-.studentInfo span {
-  font-weight: 700;
-}
-
-#alertsTitle {
-  color: #2c3e50;
-}
-
-.alertsConteiner {
-  position: absolute;
-  margin-left: 100%;
-  top: 70px;
-}
-
 .homestudent {
   display: flex;
   width: 100%;
@@ -38,12 +11,37 @@
   position: relative;
 }
 
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .base {
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
+  align-items: center;
   margin-top: 50px;
-  flex: 1;
+  width: 100%;
+  max-width: 900px;
+}
+
+.studentInfo {
+  display: flex;
+  gap: 40px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.studentInfo p {
+  font-size: 18px;
+  font-weight: 500;
+  color: black;
+}
+
+.studentInfo span {
+  font-weight: 700;
 }
 
 .graphic-container {
@@ -53,12 +51,30 @@
   width: 100%;
   max-width: 900px;
   margin-top: 60px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-right: 300px;
 }
 
 .graphic {
   width: 100%;
-  max-width: 700px;
+  display: flex;
+  justify-content: center;
+}
+
+#alertsTitle {
+  color: #2c3e50;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.alertsConteiner {
+  position: fixed;
+  right: 60px;
+  top: 70px;
+  width: 280px;
+}
+
+.alerts {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
