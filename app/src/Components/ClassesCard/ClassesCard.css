@@ -1,0 +1,29 @@
+.classes-card {
+  background-color: #4361EE;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 60px 100px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.classes-card:hover {
+  background-color: #3651D4;
+}
+
+.classes-card:active {
+  background-color: #2941BA;
+}
+
+.classes-card:focus {
+  outline: none;
+}
+
+.classes-card-name {
+  font-size: 16px;
+}

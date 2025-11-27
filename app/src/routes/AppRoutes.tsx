@@ -4,6 +4,8 @@ import HomeStudent from "../pages/Home/HomeStudent";
 import HomeTeacher from "../pages/Home/HomeTeacher";
 import Subjects from "../pages/Subjects/Subjects";
 import SubjectDetails from "../pages/Subjects/SubjectDetails";
+import Classes from "../pages/Classes/Classes";
+import Class from "../pages/Class/Class";
 
 export default function AppRoutes() {
   return (
@@ -13,7 +15,9 @@ export default function AppRoutes() {
       <Route path="/HomeTeacher" element={<HomeTeacher />} />
       <Route path="/Subjects" element={<Subjects />} />
       <Route path="/subjects/:subjectName" element={<SubjectDetails />} />
-      
+      <Route path="/classes" element={<Classes />} />
+      <Route path="/class/:id" element={<Class />} /> {}
+
     </Routes>
   );
 }
