@@ -10,6 +10,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/warnings")
@@ -17,6 +19,8 @@ public class WarningController {
 
     private final ListWarningService listWarningService;
     private final GetWarningService getWarningService;
+    private final ListWarningsByStudentService listWarningsByStudentService;
+    private final ListWarningsByTeacherService listWarningsByTeacherService;
     private final InsertWarningsService insertWarningsService;
     private final UpdateWarningService updateWarningService;
     private final DeleteWarningService deleteWarningService;
@@ -29,6 +33,16 @@ public class WarningController {
     @GetMapping("/{id}")
     public WarningResponse getWarning(@PathVariable Long id) {
         return getWarningService.byId(id);
+    }
+
+    @GetMapping("/by-student")
+    public List<WarningResponse> listWarningsByStudent(@RequestParam Long classId) {
+        return listWarningsByStudentService.list(classId);
+    }
+
+    @GetMapping("/by-teacher")
+    public List<WarningResponse> listWarningsByTeacher(@RequestParam Long classId) {
+        return listWarningsByTeacherService.list(classId);
     }
 
     @PostMapping
