@@ -1,0 +1,189 @@
+.exam {
+  display: flex;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+.exam-content {
+  flex: 1;
+  padding: 40px 60px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.exam-content h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.section {
+  margin-bottom: 32px;
+}
+
+.section h3 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.button-group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Botões de Trimestre (azul escuro) */
+.btn-primary {
+  padding: 12px 32px;
+  border: none;
+  border-radius: 25px;
+  background-color: #4a5fc1;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+.btn-primary:hover {
+  background-color: #3d4fa3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 95, 193, 0.3);
+}
+
+.btn-primary.active {
+  background-color: #2e3a7a;
+  box-shadow: 0 4px 12px rgba(74, 95, 193, 0.4);
+}
+
+/* Botões de Tipo de Prova (azul médio) */
+.btn-secondary {
+  padding: 12px 32px;
+  border: none;
+  border-radius: 25px;
+  background-color: #5865d6;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 100px;
+}
+
+.btn-secondary:hover {
+  background-color: #4a56c4;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(88, 101, 214, 0.3);
+}
+
+.btn-secondary.active {
+  background-color: #3d47a8;
+  box-shadow: 0 4px 12px rgba(88, 101, 214, 0.4);
+}
+
+/* Campo de Texto */
+.content-textarea {
+  width: 100%;
+  padding: 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 15px;
+  font-family: inherit;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+  background-color: #fafafa;
+  color: black;
+}
+
+.content-textarea:focus {
+  outline: none;
+  border-color: #4a5fc1;
+  background-color: white;
+}
+
+.content-textarea::placeholder {
+  color: #000000;
+}
+
+/* Campo de Data */
+.date-input {
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+  background-color: #5f5f5f;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  
+}
+
+.date-input:focus {
+  outline: none;
+  border-color: #4a5fc1;
+  background-color:#5f5f5f;
+}
+
+/* Botão Publicar */
+.btn-publish {
+  display: block;
+  margin: 32px auto 0;
+  padding: 14px 48px;
+  border: none;
+  border-radius: 25px;
+  background-color: #4a90e2;
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+.btn-publish:hover {
+  background-color: #357abd;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(74, 144, 226, 0.4);
+}
+
+.btn-publish:active {
+  transform: translateY(0);
+}
+
+.sideBar {
+  width: 280px;
+  background-color: white;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .exam {
+    flex-direction: column;
+  }
+
+  .exam-content {
+    padding: 20px;
+  }
+
+  .sideBar {
+    width: 100%;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+}
