@@ -22,14 +22,14 @@ public class InsertWarningsService {
     private final ExamRepository examRepository;
     private final AuthenticatedUserService authenticatedUserService;
 
-    public WarningResponse insert(InsertWarningRequest request) {
+    public WarningResponse insert(Long examId, InsertWarningRequest request) {
 
         User loggedUser = authenticatedUserService.get();
 
         if (!loggedUser.getType().equals(UserType.TEACHER))
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Você não tem permissão para criar avisos");
 
-        Exam exam = examRepository.findById(request.getExam_id())
+        Exam exam = examRepository.findById(examId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Prova não encontrada"));
 
         Warning warning = InsertWarningMapper.toEntity(request, exam);
