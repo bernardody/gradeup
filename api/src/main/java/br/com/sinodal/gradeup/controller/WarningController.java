@@ -46,8 +46,8 @@ public class WarningController {
     }
 
     @PostMapping
-    public WarningResponse insertWarning(@RequestBody InsertWarningRequest request) {
-        return insertWarningsService.insert(request);
+    public WarningResponse insertWarning(@RequestParam Long examId, @RequestBody InsertWarningRequest request) {
+        return insertWarningsService.insert(examId, request);
     }
 
     @PutMapping("/{id}")
