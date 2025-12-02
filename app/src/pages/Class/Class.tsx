@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import MyTests from '../../Components/MyTests/MyTests';
 import MyWorks from '../../Components/MyWorks/MyWorks';
-import MyAlerts from '../../Components/MyAlerts/MyAlerts';
+import PostAlert from '../..//Components/postAlerts/PostAlert';
 import TeacherSideBar from '../../Components/SideBar/Teacher-SideBar';
 import './Class.css';
 
@@ -88,6 +88,7 @@ export default function Class() {
       </div>
     );
   }
+
   return (
     <div className="class-container">
       <TeacherSideBar />
@@ -106,7 +107,7 @@ export default function Class() {
         </div>
 
         <div className="class-alerts">
-          <MyAlerts />
+          <PostAlert classId={Number(id)} />
         </div>
       </div>
     </div>
