@@ -23,14 +23,15 @@ export default function Exam() {
   const [exams, setExams] = useState<ExamItem[]>([]);
   const [tri, setTri] = useState<number | undefined>(undefined);
   const [selectedExamType, setSelectedExamType] = useState<string>("");
-  const [examContent, setExamContent] = useState<string>("");
   const [examDate, setExamDate] = useState<string>("");
+  const [teacherId, setTeacherId] = useState<number | undefined>(undefined);
+
 
   useEffect(() => {
     const token = localStorage.getItem("token");
 
     if (!token) {
-      console.error("❌ Token não encontrado!");
+      console.error(" Token não encontrado!");
       return;
     }
 
@@ -38,7 +39,18 @@ export default function Exam() {
       "Authorization": `Bearer ${token}`,
       "Content-Type": "application/json"
     };
-    
+     fetch("http://localhost:8080/users/my-info", { headers })
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        return res.json();
+      })
+      .then((data) => {
+        console.log("Professor logado:", data);
+        setTeacherId(data.id);
+      })
+      .catch(err => {
+        console.error("Erro ao carregar dados do professor:", err);
+      });
     // Buscar trimestres
     fetch("http://localhost:8080/trimesters", { headers })
       .then(res => {
@@ -49,7 +61,7 @@ export default function Exam() {
         setTrimester(data.content);
       })
       .catch(err => {
-        console.error("❌ Erro ao carregar trimestres:", err);
+        console.error("Erro ao carregar trimestres:", err);
       });
 
     // Buscar exames (com size grande para pegar todos)
@@ -70,7 +82,7 @@ export default function Exam() {
         setExams(filtered);
       })
       .catch(err => {
-        console.error("❌ Erro ao carregar provas:", err);
+        console.error("Erro ao carregar provas:", err);
       });
   }, [turmaId]);
 
@@ -96,10 +108,6 @@ export default function Exam() {
       alert("Por favor, selecione o tipo de prova!");
       return;
     }
-    if (!examContent.trim()) {
-      alert("Por favor, escreva o conteúdo da prova!");
-      return;
-    }
     if (!examDate) {
       alert("Por favor, selecione a data da prova!");
       return;
@@ -107,9 +115,10 @@ export default function Exam() {
 
     console.log("Publicando prova:", {
       trimestre: tri,
-      tipo: selectedExamType,
-      conteudo: examContent,
-      data: examDate
+      name: selectedExamType,
+      data: examDate,
+      classId: turmaId,
+      teacherId: teacherId
     });
 
     // TODO: Fazer POST para o backend aqui
@@ -117,7 +126,6 @@ export default function Exam() {
     
     // Limpar campos
     setSelectedExamType("");
-    setExamContent("");
     setExamDate("");
   };
 
@@ -166,16 +174,6 @@ export default function Exam() {
         {/* Campo de Conteúdo */}
         {selectedExamType && (
           <>
-            <div className="section">
-              <h3>Escreva aqui os conteudos de sua prova:</h3>
-              <textarea
-                className="content-textarea"
-                placeholder="Conteudos..."
-                value={examContent}
-                onChange={(e) => setExamContent(e.target.value)}
-                rows={6}
-              />
-            </div>
 
             {/* Campo de Data */}
             <div className="section">
