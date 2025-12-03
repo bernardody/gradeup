@@ -307,7 +307,7 @@ export default function Exam() {
               <input
                 type="number"
                 className="date-input"
-                placeholder="Ex: 10"
+                placeholder="Ex: 5 ou 10"
                 step="0.1"
                 min="0"
                 value={maxScore}
