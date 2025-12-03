@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     private final ListUserService listUserService;
+    private final GetInfoUserService getInfoUserService;
     private final GetUserService getUserService;
     private final InsertUserService createUserService;
     private final UpdateUserService updateUserService;
@@ -24,6 +25,11 @@ public class UserController {
     @GetMapping
     public Page<UserResponse> listUser(Pageable pageable) {
         return listUserService.list(pageable);
+    }
+
+    @GetMapping("/my-info")
+    public UserResponse getInfo() {
+        return getInfoUserService.get();
     }
 
     @GetMapping("/{id}")
