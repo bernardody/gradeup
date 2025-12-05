@@ -3,4 +3,177 @@
   width: 100%;
   min-height: 100vh;
   font-family: 'Poppins', sans-serif;
+  position: relative;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.base {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.studentInfo {
+  display: flex;
+  gap: 40px;
+  margin-top: 20px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.studentInfo p {
+  font-size: 18px;
+  font-weight: 500;
+  color: black;
+}
+
+.calendar-container {
+  margin-top: -80px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1200px;
+}
+
+.calendar {
+  color: black;
+  height: 600px;
+}
+
+/* Estilização dos botões do calendário */
+.rbc-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px;
+  margin-bottom: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  gap: 10px;
+}
+
+.rbc-toolbar button {
+  padding: 10px 20px;
+  border: 2px solid #3174ad;
+  background: white;
+  color: #3174ad;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  margin: 0 5px;
+}
+
+.rbc-toolbar button:hover {
+  background: #3174ad;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(49, 116, 173, 0.3);
+}
+
+.rbc-toolbar button:active,
+.rbc-toolbar button.rbc-active {
+  background: #3174ad;
+  color: white;
+}
+
+.rbc-toolbar-label {
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+  text-transform: capitalize;
+}
+
+/* Cabeçalho dos dias da semana */
+.rbc-header {
+  padding: 15px 5px;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #3174ad;
+  background-color: #f8f9fa;
+  text-transform: lowercase;
+}
+
+.rbc-header:first-letter {
+  text-transform: uppercase;
+}
+
+/* Células do calendário */
+.rbc-month-view {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: visible;
+  height: 100%;
+}
+
+.rbc-month-row {
+  overflow: visible;
+  min-height: 80px; /* Altura mínima das linhas */
+}
+
+.rbc-day-bg {
+  border: 1px solid #e0e0e0;
+}
+
+.rbc-off-range-bg {
+  background-color: #fafafa;
+}
+
+.rbc-today {
+  background-color: #e3f2fd !important;
+}
+
+.rbc-date-cell {
+  padding: 8px;
+  text-align: right;
+  font-size: 14px;
+}
+
+.rbc-now .rbc-button-link {
+  color: #3174ad;
+  font-weight: bold;
+}
+
+/* Eventos */
+.rbc-event {
+  padding: 4px 8px !important;
+  background-color: #3174ad !important;
+  border-radius: 5px !important;
+  border: none !important;
+  color: white !important;
+  cursor: pointer !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.rbc-event:hover {
+  background-color: #255a8f !important;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.rbc-event-label {
+  display: none;
+}
+
+.rbc-event-content {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
