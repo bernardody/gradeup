@@ -7,11 +7,15 @@ import SubjectDetails from "../pages/Subjects/SubjectDetails";
 import Classes from "../pages/Classes/Classes";
 import Class from "../pages/Class/Class";
 import Exam from "../pages/Exam/Exam";
+import { Navigate } from "react-router-dom";
+
 
 export default function AppRoutes() {
+
   return (
     <Routes>
-      <Route path="/" element={<Login />} />
+      <Route path="/" element={<Navigate to="/login" />} />
+      <Route path="/Login" element={<Login />} />
       <Route path="/HomeStudent" element={<HomeStudent />} />
       <Route path="/HomeTeacher" element={<HomeTeacher />} />
       <Route path="/Subjects" element={<Subjects />} />

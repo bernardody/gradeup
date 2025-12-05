@@ -5,4 +5,14 @@
     width: 150px;
     height: 40px;
     margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#sideBarBtn:hover {
+    background-color: rgb(30, 30, 120);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(37, 37, 148, 0.3);
 }
