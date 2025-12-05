@@ -53,3 +53,30 @@
   font-size: 18px;
   text-align: center;
 }
+
+.selected-subject {
+  margin-top: 8px;
+  text-align: center;
+  font-size: 1.05rem;
+  color: #333;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+.selected-subject span {
+  background: none;
+  color: inherit;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  letter-spacing: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: none;
+}
+
+.selected-subject span:hover {
+  transform: none;
+}
+

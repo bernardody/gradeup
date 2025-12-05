@@ -8,6 +8,7 @@ import Classes from "../pages/Classes/Classes";
 import Class from "../pages/Class/Class";
 import Exam from "../pages/Exam/Exam";
 import { Navigate } from "react-router-dom";
+import SelectSubject from "../pages/Subjects/SelectSubject";
 
 
 export default function AppRoutes() {
@@ -15,14 +16,15 @@ export default function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/login" />} />
-      <Route path="/Login" element={<Login />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/HomeStudent" element={<HomeStudent />} />
       <Route path="/HomeTeacher" element={<HomeTeacher />} />
-      <Route path="/Subjects" element={<Subjects />} />
+      <Route path="/subjects" element={<Subjects />} />
       <Route path="/subjects/:subjectName" element={<SubjectDetails />} />
       <Route path="/classes" element={<Classes />} />
-      <Route path="/class/:id" element={<Class />} /> {}
+      <Route path="/class/:id" element={<Class />} />
       <Route path="/class/:id/exam" element={<Exam />} />
+      <Route path="/class/:id/subjects" element={<SelectSubject />} />
 
     </Routes>
   );

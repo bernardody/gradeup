@@ -1,0 +1,60 @@
+.subject-select {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  color: #111827;
+}
+
+.subject-select h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #111827;
+}
+
+.subject-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 18px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.subject-buttons button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.subject-buttons button:hover {
+  background-color: #1e4ed8;
+  transform: translateY(-2px);
+}
+
+.subject-buttons button:active {
+  background-color: #193ea8;
+  transform: translateY(0px);
+}
+
+.subject-select::before {
+  content: "";
+  width: 100%;
+  max-width: 650px;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  border: 1px solid #e5e7eb;
+  top: 40px;
+  bottom: 40px;
+}
