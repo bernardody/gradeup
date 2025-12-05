@@ -1,0 +1,500 @@
+{
+	"info": {
+		"_postman_id": "e95df6e3-d0f1-4f07-98cf-1c46c99ed252",
+		"name": "GradeUp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48183986"
+	},
+	"item": [
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "listar usuarios",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ0Y2MiLCJzdWIiOiJNYXJpYSBTaWx2YSIsImV4cCI6MTc2MjM5MDYwNywiaWF0IjoxNzYyMzkwMDA3LCJlbWFpbCI6Im1hcmlhLnNpbHZhQGVzY29sYS5jb20ifQ.LSDPSCKPzzi55K1B-ZU-oSXAHaZIZuQWuPbeC4spsOEo-yI-WTDDAz7Slj33V4DoAtejqZoV_caCl86qk2dDZOGxSOgAGHMNu6AxLYJ-SSMUC4iuXo9u7LugVXRUlV4lvA6QBALgML5BfUHvC6pu-R7l63lvBVfhuqTnOXrlVE6VOcQWoSv2IrUFI_NuqpQg0ugnbFGVjD2zWFoogrcOFNszBvbgHIlYQDBChReClGUUEV41-O0AJObw79E_KdKZhODwzCCTNbntCOSe91u6ASm2B2_kQ5kl4GNDebCLJDT2CR5sAf1OhphqBj3boV-tGPnmnjyT05Zg4O9uR-BUyg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users?size=5&page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dashboard",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ0Y2MiLCJzdWIiOiJQZWRybyBBbHZlcyIsImV4cCI6MTc2MzY4MDI3NSwiaWF0IjoxNzYzNjc5Njc1LCJlbWFpbCI6InBlZHJvLmFsdmVzQGVzdHVkYW50ZS5jb20ifQ.B9R-OtMAdWqhikaE04TryxJTFDsNImspMxqkCRIjc_-P37zi7dcv9RlCr0gb8mt_e9GEJCL9PE_ViwbOWqc_1xA9_QOJIarDX_jpqYx2JENI3ejk3CLubcVCWGNCFCZPBGqv8s1odMqcn4qOxr80xjB1TXRLyzL2ZMmZu1_U8MmHJRX2_4q8fHm1xyBlE_w-xWIE3jduw6pc1AaZn-HK4lyNEOVry_8VmUlua0kZBoIcd3A8iIn-rvMV9-7GHk875qYiH99zhDXIDiLm4pWmlnmqngZXzTE6RO9r1J1zCV5yvxFSjlxoqMQKeF4exjL6iHeZeIZL5E9KIFNG22ispA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dashboard",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dashboard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "usuario logado",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ0Y2MiLCJzdWIiOiJDbMOhdWRpYSBNZW5lemVzIiwiZXhwIjoxNzY0NzY1NTA2LCJpYXQiOjE3NjQ3NjQ5MDYsImVtYWlsIjoiY2xhdWRpYS5tZW5lemVzQGVzY29sYS5jb20ifQ.L0wjTkqUW5f75JT9LIIn0nd6hLwb-hp3JH_z8mUfir9YrDESbj8RJWgqxXakPKu5Y0Hnrz5ZrOpti4r3ebgvKq-c7qsnnGUHZvTLWVOGUfmF3EoYavKUvdHfvHOU3aEyoBeNWRV8-qa3aSCvt1YTP9yPswG3NCxETABS-uacBT9aX1UX7sZcMBeHQz_RgW4-s0nrPdhivlmOKGlh7CuekObM_4i8VY5bASLDg4SkJ7eBmIhu3MQiU3RTwqN1oBtvMlpz32zEAijbTRNV0XowhFFR5qDRAKeVv51mO_I-xmKOAK6pcIg4OGc9BvPEf2lZK7mPcBkWAy1FQkCTIb3FAA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users/my-info",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"my-info"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Turmas",
+			"item": [
+				{
+					"name": "Minhas turmas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ0Y2MiLCJzdWIiOiJDbMOhdWRpYSBNZW5lemVzIiwiZXhwIjoxNzY0MTk5NzEwLCJpYXQiOjE3NjQxOTkxMTAsImVtYWlsIjoiY2xhdWRpYS5tZW5lemVzQGVzY29sYS5jb20ifQ.MV3HxqiTLcMTKxInRxmswBNSXFw1NkdlvwS8aUd_ZnRo0tncQRsARbP1hMnIGrBwKIreEMt8boSpkkqi5rfm8lkZk5CQOoigXTPLP04pZjPI125cOFGT2VsGnlo3qvQBZfOlEWrKBnK4KPubRY3izQy44Slg766lksAxx2GALsf0nxNGqQ8zk9IWLZJX_uKB6SwPfIbekaWulh6_CoFE8Tn7XzmBA55F3uQkyKmp7Hmiw-5mCwgNvYg-vGQNYqQDx1GMqOuP3NZWNkdGU4OSyUa-UWjpA0iFlw08Tijg0VbxFlCxrcGZw8-6hniv6h9DqMTK15pnVMhUhX6pBP1SOA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/classes/my-classes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"classes",
+								"my-classes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Matérias",
+			"item": [
+				{
+					"name": "Minhas matérias",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ0Y2MiLCJzdWIiOiJDbMOhdWRpYSBNZW5lemVzIiwiZXhwIjoxNzY0MTk5NzEwLCJpYXQiOjE3NjQxOTkxMTAsImVtYWlsIjoiY2xhdWRpYS5tZW5lemVzQGVzY29sYS5jb20ifQ.MV3HxqiTLcMTKxInRxmswBNSXFw1NkdlvwS8aUd_ZnRo0tncQRsARbP1hMnIGrBwKIreEMt8boSpkkqi5rfm8lkZk5CQOoigXTPLP04pZjPI125cOFGT2VsGnlo3qvQBZfOlEWrKBnK4KPubRY3izQy44Slg766lksAxx2GALsf0nxNGqQ8zk9IWLZJX_uKB6SwPfIbekaWulh6_CoFE8Tn7XzmBA55F3uQkyKmp7Hmiw-5mCwgNvYg-vGQNYqQDx1GMqOuP3NZWNkdGU4OSyUa-UWjpA0iFlw08Tijg0VbxFlCxrcGZw8-6hniv6h9DqMTK15pnVMhUhX6pBP1SOA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/subjects/my-subjects?classId=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"subjects",
+								"my-subjects"
+							],
+							"query": [
+								{
+									"key": "classId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notas",
+			"item": [
+				{
+					"name": "Minhas notas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ0Y2MiLCJzdWIiOiJDbMOhdWRpYSBNZW5lemVzIiwiZXhwIjoxNzYzOTk3NjU4LCJpYXQiOjE3NjM5OTcwNTgsImVtYWlsIjoiY2xhdWRpYS5tZW5lemVzQGVzY29sYS5jb20ifQ.KU3cC2ggcaqQj0lRtfrjkC1SGWcMb38MTUvioIrxjt3K0MsA47WbxAul7krt-xtF3sq2NoNusug5j6DzT99kUe6OSo4UmxANJ_3ea2crChQ7G16gR5EN8_sMfKacTgPYUV26svsw5hxsyBcjsJ-LI1mvqQtssYgMbUFV5iJlvmW0Nyh4YxaV8wyvJ647gKMPwx5SDhyraciTLjfKteSNb5yN3q2zmhXxEP0diI6iiU9uN1kipoMD8nu0iiknkUYC94dNf43JfHODyv6q3nbtoBcPgyQ6Z9d1xNUsSw5U3s48EMSha1lW8so5IDfgmbd6Z7FCfSbQ8fFmUsJy8GdzQw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/grades/my-grades?subjectId=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"grades",
+								"my-grades"
+							],
+							"query": [
+								{
+									"key": "subjectId",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar notas dos alunos em uma prova",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ0Y2MiLCJzdWIiOiJDbMOhdWRpYSBNZW5lemVzIiwiZXhwIjoxNzY0MDA5NjI4LCJpYXQiOjE3NjQwMDkwMjgsImVtYWlsIjoiY2xhdWRpYS5tZW5lemVzQGVzY29sYS5jb20ifQ.f0573R1wDKK97w9P_VavMIqt2yCvn6NJiBoA99n80Bc3O27DsPbfAOvr8djeY4M0gc6hnRYd6J3EVClpTUPBFz8xbZlUP_FGpGi8w-BOxYMEGh9_I6safBuOT7gPmLw0a6svrni5ZrvLtSPb73wue6PnB6XQopaPsdqywiTaZRyXmZ_K_31UYSQzmUUPc9kRqE1dRNMpZbdpT5AdDJE_XDA_WrtZqS6WVd4XEvqeZmFt_6a3LYwhMDtjL2wUMpwP5HrlwCxkUaYlx3dlCj0AjHmY1vooCgR1Ih5QJ8XUI00CgtAaut2HmsXA2n9S43tuHJEyLfbdY02x7an_EBLAWQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/grades/by-exam/14",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"grades",
+								"by-exam",
+								"14"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Provas",
+			"item": [
+				{
+					"name": "listar provas do professor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ0Y2MiLCJzdWIiOiJDbMOhdWRpYSBNZW5lemVzIiwiZXhwIjoxNzY0MDA5NjI4LCJpYXQiOjE3NjQwMDkwMjgsImVtYWlsIjoiY2xhdWRpYS5tZW5lemVzQGVzY29sYS5jb20ifQ.f0573R1wDKK97w9P_VavMIqt2yCvn6NJiBoA99n80Bc3O27DsPbfAOvr8djeY4M0gc6hnRYd6J3EVClpTUPBFz8xbZlUP_FGpGi8w-BOxYMEGh9_I6safBuOT7gPmLw0a6svrni5ZrvLtSPb73wue6PnB6XQopaPsdqywiTaZRyXmZ_K_31UYSQzmUUPc9kRqE1dRNMpZbdpT5AdDJE_XDA_WrtZqS6WVd4XEvqeZmFt_6a3LYwhMDtjL2wUMpwP5HrlwCxkUaYlx3dlCj0AjHmY1vooCgR1Ih5QJ8XUI00CgtAaut2HmsXA2n9S43tuHJEyLfbdY02x7an_EBLAWQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/exams/by-teacher?classId=2&subjectId=2&trimesterId=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"exams",
+								"by-teacher"
+							],
+							"query": [
+								{
+									"key": "classId",
+									"value": "2"
+								},
+								{
+									"key": "subjectId",
+									"value": "2"
+								},
+								{
+									"key": "trimesterId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar TODAS as provas do professor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ0Y2MiLCJzdWIiOiJDbMOhdWRpYSBNZW5lemVzIiwiZXhwIjoxNzY0OTU1OTk1LCJpYXQiOjE3NjQ5NTUzOTUsImVtYWlsIjoiY2xhdWRpYS5tZW5lemVzQGVzY29sYS5jb20ifQ.SzsVhAJwvYiD6tM8Bf4zxtUaCOkKVaLbJyh68YsQHydzKkklXbFfdKyjHhX10pgiiNqxlGk9XOxuq2_eAFVIM3Qeo8HTioaB5uZy1gpBoZyFcjDgSMgdJwh4Wh2NVbC-nhfr96IGS76oXj7W1FM1rLeI5BnRMfwDg5lxHmiyP0yFlbUJzhA0MGDqskt1q2lH3ZGAz0prgM-8LoIRAMrX628DKKCeZs85nTiQ5azWMACHuslaF9D_AgQDkBhRoMNrZbVaPZZ21vzmfKxj2ldNaffaYogKGcg2urxe_YQgWiBC1lkOoq5XzRTCyWw4bO3x2a-hQD10NofLgZzIJCySMA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/exams/teacher/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"exams",
+								"teacher",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Avisos",
+			"item": [
+				{
+					"name": "listar estudante",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ0Y2MiLCJzdWIiOiJQZWRybyBBbHZlcyIsImV4cCI6MTc2NDI0Njg1NywiaWF0IjoxNzY0MjQ2MjU3LCJlbWFpbCI6InBlZHJvLmFsdmVzQGVzdHVkYW50ZS5jb20ifQ.NQS4OaYVDiHGQsHNHbLGC1YqZ55d61VWiPGFOa9O2c-yD6T8jH2qjsod-1AowtK3kkTxeQ15ToXPHH037yr0EjmwIPzgas4he7XalopCTb2BE4s3ny7DWDu3nYo0ZywkEWVD0SO17gW4fjS--Qdr5AlDr6MCqzjchP-_jCDYjjLtdxXI3UV8XomOP3i89FE7Ena_B3_REo4A-GUxlx2ysddUDhyL_1yFNkWSb0eCM3559m3DydyqhixSgDa0rlhLpUd2EfoI3C6PBTz1VHbFgyfcNN4vEU9eS4iHtdrx7QRskJG0n6VUnpa5bsJnotvEeVtJa6LDJhAtwmvSCcVo6g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"claudia.menezes@escola.com\",\r\n    \"password\": \"123456\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/warnings/by-student?classId=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"warnings",
+								"by-student"
+							],
+							"query": [
+								{
+									"key": "classId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar professores",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ0Y2MiLCJzdWIiOiJDbMOhdWRpYSBNZW5lemVzIiwiZXhwIjoxNzY0MjQ2ODE3LCJpYXQiOjE3NjQyNDYyMTcsImVtYWlsIjoiY2xhdWRpYS5tZW5lemVzQGVzY29sYS5jb20ifQ.u5aGTKWq7W8nqUOQefMxtcLcmA3b9OGYzM5UexEHl_2t72w9rp7EggwDcM2d3-zEAwlB8Ti8cWvg_9qJRXDnM-YeOt--w2m1mzF0f60xesuGvHDWnLI88grbKfe_T2qcYRBHGE2RkOsFDF-ExwXXdxsB7AhAb1KZ6piQ7KyR6sojAvtxmAgpRGXsqu3cCvFmLK-iXoey6r8dIw3yYxswPXnEXo9PYY68XBQhXFY3bWGDRwTfhilekc8edciphddL2OEYCkBi6SZxkKSxD1d3qSTzaHVCPN_6NcoZhfLkWXnaQ7quOo_AXe1Dr6JKWpiCTIyVLXlebJl77RZXWBuTVg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/warnings/by-teacher?classId=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"warnings",
+								"by-teacher"
+							],
+							"query": [
+								{
+									"key": "classId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ0Y2MiLCJzdWIiOiJDbMOhdWRpYSBNZW5lemVzIiwiZXhwIjoxNzY0NjA4NzE5LCJpYXQiOjE3NjQ2MDgxMTksImVtYWlsIjoiY2xhdWRpYS5tZW5lemVzQGVzY29sYS5jb20ifQ.L4IcZr5HDO9DGAWTMMekojVYnjB4Y0LfMD2VFx6RJqDNlWlwOHdzbl1zFHVlQhImuWYf8KXxkSrMb4sOcEx00xTyoce0-_bbPaL10xqfMBLU0T62Hw9WqQtITAM7L89VB3C4Q9a6b8gDR_KYRMd6aaGN77b1Im0ZM_uj_YaEepdN8YLabzF6INktcsmjDjCePHGR6T7DCJgqBOGSK57UYmD0z7LfBtkCuW52Z52CU4iYmdidYhnMHah3nSyrB8Y0svghnjaI82nQV4H5TrMwV0SqxKLF2cFpikLynlCkyql6RKsdr9_94qkYyJqeh9Tl2zOmFP3NvkzitoxakLV4oQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"AAA\",\r\n    \"content\": \"BBB\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/warnings?examId=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"warnings"
+							],
+							"query": [
+								{
+									"key": "examId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"claudia.menezes@escola.com\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -23,4 +23,13 @@ public interface ExamRepository extends JpaRepository<Exam, Long> {
             @Param("classId") Long classId,
             @Param("subjectId") Long subjectId,
             @Param("trimesterId") Long trimesterId);
+
+    @Query("SELECT e FROM Exam e " +
+            "JOIN FETCH e.clazz c " +
+            "JOIN FETCH e.subject s " +
+            "JOIN FETCH e.teacher t " +
+            "JOIN FETCH e.trimester tr " +
+            "WHERE t.id = :teacherId " +
+            "ORDER BY e.examDate DESC")
+    List<Exam> findAllByTeacherId(@Param("teacherId") Long teacherId);
 }
