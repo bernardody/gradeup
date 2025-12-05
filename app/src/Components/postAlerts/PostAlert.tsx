@@ -39,8 +39,6 @@ export default function PostAlert({
     const load = async () => {
       try {
         setLoading(true);
-
-        // 1. Buscar trimestres
         const triRes = await fetch("http://localhost:8080/trimesters", {
           headers: { Authorization: `Bearer ${token}` }
         });
@@ -50,7 +48,6 @@ export default function PostAlert({
 
         const allExams: Exam[] = [];
 
-        // 2. Buscar exames para cada trimestre, mas SÓ da matéria selecionada
         for (const tri of trimesters) {
           const res = await fetch(
             `http://localhost:8080/exams/by-teacher?classId=${classId}&subjectId=${subjectId}&trimesterId=${tri.id}`,
