@@ -1,106 +1,73 @@
 .post-alert {
-  position: relative;
-  z-index: 10;
+  width: 100%;
+  max-width: 520px;
   background: #ffffff;
-  color: #111827;
-  border-radius: 12px;
-  padding: 28px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  border: 1px solid #e5e7eb;
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  transition: 0.2s ease;
 }
 
-.post-alert__title {
-  font-size: 20px;
+.post-alert h2 {
+  font-size: 24px;
   font-weight: 700;
-  margin-bottom: 24px;
   color: #111827;
+  margin: 0;
+  letter-spacing: -0.5px;
 }
 
-.post-alert__form {
+.post-alert form {
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
 
-.post-alert__input,
-.post-alert__select,
-.post-alert__textarea {
+.post-alert input,
+.post-alert select,
+.post-alert textarea {
   width: 100%;
-  border: 1px solid #d1d5db;
-  border-radius: 10px;
-  padding: 12px 14px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #d6d6d6;
   font-size: 15px;
-  font-family: inherit;
-  background-color: #ffffff;
-  transition: all 0.2s ease;
-  position: relative;
-  z-index: 20;
-}
-
-.post-alert__select {
-  background-color: #ffffff;
   color: #1f2937;
-  cursor: pointer;
-  /* Adiciona a setinha customizada */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23374151' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 14px center;
-  padding-right: 40px;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  background-color: #fafafa;
+  transition: 0.2s ease;
+  font-family: inherit;
 }
 
-.post-alert__select:disabled {
+.post-alert input:hover,
+.post-alert select:hover,
+.post-alert textarea:hover {
+  background-color: #ffffff;
+  border-color: #c7c7c7;
+}
+
+.post-alert select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 12 12'%3E%3Cpath fill='%23374151' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 42px;
+  cursor: pointer;
+}
+
+.post-alert select:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
 
-.post-alert__select option {
-  background-color: white;
-  color: #1f2937;
-  padding: 8px;
-}
-
-.post-alert__input,
-.post-alert__textarea {
-  color: #1f2937;
-}
-
-.post-alert__input:focus,
-.post-alert__select:focus,
-.post-alert__textarea:focus {
-  outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
-}
-
-.post-alert__textarea {
+.post-alert textarea {
   resize: vertical;
   min-height: 130px;
 }
 
-.post-alert__button {
-  background-color: #2563eb;
-  color: white;
-  padding: 12px 26px;
-  border-radius: 9999px;
-  border: none;
-  cursor: pointer;
-  transition: 0.2s ease;
-  font-weight: 600;
-  font-size: 15px;
-  width: fit-content;
-  position: relative;
-  z-index: 20;
-}
-
-.post-alert__button:hover {
-  background-color: #1e4ed8;
-  transform: translateY(-1px);
-}
-
-.post-alert__button:active {
-  background-color: #1c3faa;
-  transform: translateY(0px);
+.post-alert input:focus,
+.post-alert select:focus,
+.post-alert textarea:focus {
+  border-color: #3b82f6;
 }
