@@ -39,7 +39,6 @@ export default function SelectSubject() {
       <TeacherSideBar />
       <div className="class-content">
         <h2 id="title">Selecione a disciplina</h2>
-
         <div className="button-group">
           {subjects.map((s) => (
             <button

@@ -1,60 +1,82 @@
-.subject-select {
+.class-container {
+  display: flex;
+  min-height: 100vh;
+  background: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.class-content {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 20px;
-  color: #111827;
+  justify-content: center;
+  padding: 2rem;
+  animation: fadeIn 0.5s ease-in;
+  margin-right: -20px;
+  margin-bottom: 120px;
 }
 
-.subject-select h2 {
-  font-size: 24px;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#title {
+  font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 24px;
-  color: #111827;
+  color: #2c3e50;
+  margin-bottom: 3rem;
+  text-align: center;
+  letter-spacing: 0.3px;
 }
 
-.subject-buttons {
+.button-group {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 900px;
   width: 100%;
-  max-width: 600px;
+  padding: 0 1rem;
 }
 
-.subject-buttons button {
-  background: #2563eb;
+.btn-primary {
+  background: #4b6bff;
   color: white;
   border: none;
-  padding: 14px 18px;
-  border-radius: 12px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.2s ease;
+  padding: 1.5rem 2rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.15);
 }
 
-.subject-buttons button:hover {
-  background-color: #1e4ed8;
-  transform: translateY(-2px);
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.25);
+  background: #0069d9;
 }
 
-.subject-buttons button:active {
-  background-color: #193ea8;
-  transform: translateY(0px);
+.btn-primary:active {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2);
 }
 
-.subject-select::before {
-  content: "";
+.class-container > div:only-child {
   width: 100%;
-  max-width: 650px;
-  height: 100%;
-  position: absolute;
-  z-index: -1;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-  border: 1px solid #e5e7eb;
-  top: 40px;
-  bottom: 40px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #2c3e50;
+  font-weight: 500;
 }
