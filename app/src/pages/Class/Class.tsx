@@ -20,6 +20,8 @@ export default function Class() {
   const [classData, setClassData] = useState<ClassData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  
+  const [selectedSubjectId, setSelectedSubjectId] = useState<number | null>(null);
   const [subjectName, setSubjectName] = useState<string>("");
 
   useEffect(() => {
@@ -59,6 +61,8 @@ export default function Class() {
         setClassData(currentClass);
 
         if (subjectId) {
+          setSelectedSubjectId(Number(subjectId));
+
           const subjectRes = await fetch(
             `http://localhost:8080/subjects/${subjectId}`,
             {
@@ -73,8 +77,10 @@ export default function Class() {
             console.warn("Não foi possível carregar o nome da matéria");
           }
         } else {
+          setSelectedSubjectId(null);
           setSubjectName("");
         }
+
       } catch (err) {
         console.error(err);
         setError("Erro ao carregar dados da turma");
@@ -84,7 +90,7 @@ export default function Class() {
     };
 
     fetchData();
-  }, [id, subjectId]); 
+  }, [id, subjectId]);
 
   if (loading) {
     return (
@@ -108,8 +114,6 @@ export default function Class() {
     );
   }
 
-  const subjectIdNumber = subjectId ? Number(subjectId) : null;
-
   return (
     <div className="class-container">
       <TeacherSideBar />
@@ -129,12 +133,12 @@ export default function Class() {
         </header>
 
         <div className="class-grid">
-          <MyTests />
+          <MyTests subjectId={selectedSubjectId} />
           <MyWorks />
         </div>
 
         <div className="class-alerts">
-          <PostAlert classId={Number(id)} subjectId={subjectIdNumber} />
+          <PostAlert classId={Number(id)} subjectId={selectedSubjectId} />
         </div>
       </div>
     </div>

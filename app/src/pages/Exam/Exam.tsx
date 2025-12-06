@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import TeacherSideBar from "../../Components/SideBar/Teacher-SideBar";
 import "./Exam.css";
 
@@ -18,6 +18,19 @@ interface ExamItem {
 export default function Exam() {
   const { id } = useParams();
   const turmaId = id;
+
+  const location = useLocation();
+
+  // 🔥 Aqui está a correção:
+  const urlParams = new URLSearchParams(window.location.search);
+  const subjectFromQuery = urlParams.get("subject");
+  const subjectFromState = location.state?.subjectId;
+
+  // PRIORIDADE: state → query param
+  const subjectId = subjectFromState ?? subjectFromQuery;
+
+  const materiaNaoSelecionada = !subjectId;
+
   const [trimesters, setTrimesters] = useState<Trimester[]>([]);
   const [exams, setExams] = useState<ExamItem[]>([]);
   const [tri, setTri] = useState<number | undefined>(undefined);
@@ -25,10 +38,6 @@ export default function Exam() {
   const [examDate, setExamDate] = useState<string>("");
   const [maxScore, setMaxScore] = useState<string>("");
   const [teacherId, setTeacherId] = useState<number | undefined>(undefined);
-  const searchParams = new URLSearchParams(window.location.search);
-  const subjectId = searchParams.get("subject");
-
-  const materiaNaoSelecionada = !subjectId;
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -145,7 +154,9 @@ export default function Exam() {
                       setTri(t.id);
                       setSelectedExamType("");
                     }}
-                    className={tri === t.id ? "btn-primary active" : "btn-primary"}
+                    className={
+                      tri === t.id ? "btn-primary active" : "btn-primary"
+                    }
                   >
                     {t.name}
                   </button>
