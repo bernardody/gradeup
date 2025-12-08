@@ -22,7 +22,7 @@ interface StudentData {
 export default function HomeStudent() {
     const [studentData, setStudentData] = useState<StudentData | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
-    const navigate = useNavigate(); // ← Adicionar
+    const navigate = useNavigate(); 
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -56,7 +56,6 @@ export default function HomeStudent() {
         });
     }, []);
 
-    // ← Adicionar função de navegação
     const handleViewAllWarnings = () => {
         navigate('/student/avisos');
     };
@@ -92,7 +91,7 @@ export default function HomeStudent() {
                 <TeacherWarnings 
                     classId={studentData?.classInfo?.id}
                     showViewAllButton={true}
-                    onViewAll={handleViewAllWarnings} // ← Adicionar callback
+                    onViewAll={handleViewAllWarnings} 
                 />
             </div>
         </div>

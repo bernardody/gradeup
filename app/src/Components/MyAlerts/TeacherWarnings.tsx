@@ -49,7 +49,7 @@ interface TeacherWarningsProps {
   classId?: number;
   maxWarnings?: number;
   showViewAllButton?: boolean;
-  onViewAll?: () => void; // Callback para navegação
+  onViewAll?: () => void; 
 }
 
 const TeacherWarnings: React.FC<TeacherWarningsProps> = ({ 
@@ -139,7 +139,7 @@ const TeacherWarnings: React.FC<TeacherWarningsProps> = ({
     return (
       <div className="warnings-container">
         <div className="warnings-error">
-          <p>❌ {error}</p>
+          <p>{error}</p>
         </div>
       </div>
     );
@@ -147,7 +147,7 @@ const TeacherWarnings: React.FC<TeacherWarningsProps> = ({
 
   return (
     <div className="warnings-container">
-      <h2 className="warnings-title">📢 Avisos dos Professores</h2>
+      <h2 className="warnings-title">Avisos dos Professores</h2>
       
       {warnings.length === 0 ? (
         <div className="warnings-empty">

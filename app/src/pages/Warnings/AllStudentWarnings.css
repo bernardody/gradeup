@@ -18,7 +18,7 @@
   width: 1px;           
  
 }
-/* Header da página */
+
 .all-warnings-header {
   background: white;
   border-radius: 12px;
@@ -47,7 +47,6 @@
   font-weight: 600;
 }
 
-/* Loading e Error */
 .loading-container,
 .error-container {
   display: flex;
@@ -86,7 +85,6 @@
   border: 1px solid #fcc;
 }
 
-/* Empty state */
 .empty-warnings {
   background: white;
   border: 2px dashed #ddd;
@@ -109,8 +107,6 @@
 }
 
 
-
-/* Card */
 .warning-card-full {
   background: white;
   border-radius: 12px;
@@ -126,9 +122,8 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
-/* Header do card */
 .warning-header-full {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #667eea;
   padding: 1.25rem;
   display: flex;
   justify-content: space-between;
@@ -155,7 +150,6 @@
   white-space: nowrap;
 }
 
-/* Conteúdo */
 .warning-content-full {
   padding: 1.25rem;
   border-bottom: 1px solid #ecf0f1;
@@ -170,7 +164,6 @@
   white-space: pre-wrap;
 }
 
-/* Detalhes */
 .warning-details-full {
   padding: 1.25rem;
   background: #f8f9fa;
@@ -203,7 +196,6 @@
   font-weight: 600;
 }
 
-/* Footer */
 .warning-footer-full {
   padding: 1rem 1.25rem;
   background: #ecf0f1;
