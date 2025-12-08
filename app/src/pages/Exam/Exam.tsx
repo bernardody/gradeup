@@ -137,7 +137,16 @@ export default function Exam() {
           <>
             <div className="section">
               <h3>Selecione o trimestre</h3>
-              <div className="button-group">
+              <div 
+                className="button-group" 
+                style={{ 
+                  display: 'flex', 
+                  flexDirection: 'row', 
+                  flexWrap: 'nowrap', 
+                  gap: '15px', 
+                  justifyContent: 'center' 
+                }}
+              >
                 {trimesters.map((t) => (
                   <button
                     key={t.id}
@@ -156,7 +165,16 @@ export default function Exam() {
             {tri && (
               <div className="section">
                 <h3>Tipo da prova</h3>
-                <div className="button-group">
+                <div 
+                  className="button-group"
+                  style={{ 
+                    display: 'flex', 
+                    flexDirection: 'row', 
+                    flexWrap: 'nowrap', 
+                    gap: '15px', 
+                    justifyContent: 'center' 
+                  }}
+                >
                   {examTypes.map((type) => (
                     <button
                       key={type}

@@ -7,16 +7,16 @@ import { useState, useEffect } from "react";
 import Graphic from "../../Components/Graphic/Graphic";
 
 interface ClassInfo {
-    id?: number;
-    name?: string;
-    year?: number;
+  id?: number;
+  name?: string;
+  year?: number;
 }
 
 interface StudentData {
-    studentId: number;
-    studentName: string;
-    studentEmail: string;
-    classInfo?: ClassInfo; 
+  studentId: number;
+  studentName: string;
+  studentEmail: string;
+  classInfo?: ClassInfo;
 }
 
 export default function HomeStudent() {
@@ -24,8 +24,8 @@ export default function HomeStudent() {
     const [loading, setLoading] = useState<boolean>(true);
     const navigate = useNavigate(); 
 
-    useEffect(() => {
-        const token = localStorage.getItem('token');
+  useEffect(() => {
+    const token = localStorage.getItem("token");
 
         fetch('http://localhost:8080/dashboard', {
             method: 'GET',
@@ -64,36 +64,41 @@ export default function HomeStudent() {
         return <div>Loading...</div>;
     }
 
-    if (!studentData) {
-        return <div>Erro ao carregar dados</div>;
-    }
+  if (!studentData) {
+    return <div>Erro ao carregar dados</div>;
+  }
 
-    return (
-        <div className="homestudent">
-            <div className="sideBar">
-                <StudentSideBar />
-            </div>
-            <div className="main-content">
-                <div className="base">
-                    <HomeBase />
-                    <div className="studentInfo">
-                        <p>Serie: <span id="serie">{studentData?.classInfo?.year || 'N/A'}</span></p>
-                        <p>Turma: <span id="turma">{studentData?.classInfo?.name || 'N/A'}</span></p>
-                    </div>
-                </div>
-                <div className="graphic-container">
-                    <div className="graphic">
-                        <Graphic />
-                    </div>
-                </div>
-            </div>
-            <div className="alertsConteiner">
-                <TeacherWarnings 
-                    classId={studentData?.classInfo?.id}
-                    showViewAllButton={true}
-                    onViewAll={handleViewAllWarnings} 
-                />
-            </div>
+  return (
+    <div className="homestudent">
+      <div className="sideBar">
+        <StudentSideBar />
+      </div>
+      <div className="main-content">
+        <div className="base">
+          <HomeBase />
+          <div className="studentInfo">
+            <p>
+              Serie:{" "}
+              <span id="serie">{studentData?.classInfo?.year || "N/A"}</span>
+            </p>
+            <p>
+              Turma:{" "}
+              <span id="turma">{studentData?.classInfo?.name || "N/A"}</span>
+            </p>
+          </div>
         </div>
-    );
+        <div className="graphic-container">
+          <div className="graphic">
+            <Graphic />
+          </div>
+        </div>
+      </div>
+      <div className="alertsConteiner">
+        <p id="alertsTitle">Avisos da semana</p>
+        <div className="alerts">
+          <Alerts classId={studentData?.classInfo?.id} />
+        </div>
+      </div>
+    </div>
+  );
 }
