@@ -8,7 +8,7 @@
 .all-warnings-content {
   flex: 1;
   padding: 2rem;
-  margin-left: 240px;
+  margin-left: 280px;
   height: 100vh;
   box-sizing: border-box;
   overflow-y: auto;
@@ -142,8 +142,9 @@
 
 .warning-subject-full {
   background: rgba(255, 255, 255, 0.25);
-  color: white;
+  color: black;
   padding: 0.35rem 0.85rem;
+  margin-left: 0px;
   border-radius: 20px;
   font-size: 0.85rem;
   font-weight: 500;

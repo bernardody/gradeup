@@ -1,7 +1,7 @@
 import StudentSideBar from "../../Components/SideBar/Student-SideBar";
 import HomeBase from "../../Components/HomeBase/HomeBase";
 import TeacherWarnings from "../../Components/MyAlerts/TeacherWarnings";
-import { useNavigate } from 'react-router-dom'; // ← Adicionar
+import { useNavigate } from "react-router-dom"; // ← Adicionar
 import "./css/HomeStudent.css";
 import { useState, useEffect } from "react";
 import Graphic from "../../Components/Graphic/Graphic";
@@ -20,49 +20,49 @@ interface StudentData {
 }
 
 export default function HomeStudent() {
-    const [studentData, setStudentData] = useState<StudentData | null>(null);
-    const [loading, setLoading] = useState<boolean>(true);
-    const navigate = useNavigate(); 
+  const [studentData, setStudentData] = useState<StudentData | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-        fetch('http://localhost:8080/dashboard', {
-            method: 'GET',
-            headers: { 
-                'Authorization': `Bearer ${token}`,
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(async response => {
-            if (!response.ok) {
-                throw new Error('Erro ao buscar dados do estudante');
-            }
-            return response.json();
-        })
-        .then((data: StudentData) => {
-            console.log('Dados recebidos:', data);
-            console.log('ClassInfo:', data.classInfo);
-            
-            if (!data || !data.studentId) {
-                throw new Error('Dados do estudante inválidos ou incompletos');
-            }
-            setStudentData(data);
-            setLoading(false);
-        })
-        .catch(error => {
-            console.error('Erro ao buscar dados do estudante:', error);
-            setLoading(false);
-        });
-    }, []);
+    fetch("http://localhost:8080/dashboard", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    })
+      .then(async (response) => {
+        if (!response.ok) {
+          throw new Error("Erro ao buscar dados do estudante");
+        }
+        return response.json();
+      })
+      .then((data: StudentData) => {
+        console.log("Dados recebidos:", data);
+        console.log("ClassInfo:", data.classInfo);
 
-    const handleViewAllWarnings = () => {
-        navigate('/student/avisos');
-    };
+        if (!data || !data.studentId) {
+          throw new Error("Dados do estudante inválidos ou incompletos");
+        }
+        setStudentData(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Erro ao buscar dados do estudante:", error);
+        setLoading(false);
+      });
+  }, []);
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
+  const handleViewAllWarnings = () => {
+    navigate("/student/avisos");
+  };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   if (!studentData) {
     return <div>Erro ao carregar dados</div>;
@@ -96,7 +96,12 @@ export default function HomeStudent() {
       <div className="alertsConteiner">
         <p id="alertsTitle">Avisos da semana</p>
         <div className="alerts">
-          <Alerts classId={studentData?.classInfo?.id} />
+          <TeacherWarnings
+            classId={studentData?.classInfo?.id}
+            maxWarnings={2}
+            showViewAllButton={true}
+            onViewAll={handleViewAllWarnings}
+          />
         </div>
       </div>
     </div>

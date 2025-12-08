@@ -496,7 +496,7 @@ export default function AllStudentWarnings() {
 
                 <div style={{ display: 'flex', padding: '0 1.25rem', paddingTop: '0.5rem' }}>
                   <span className="warning-subject-full">
-                    {warning.examEntity.subject.name}
+                    Materia: {warning.examEntity.subject.name}
                   </span>
                 </div>
 
