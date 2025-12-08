@@ -1,6 +1,7 @@
 import "./css/SideBar.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import avatarPadrao from "../../assets/avatarPadrao.jpeg";
 
 interface UserInfoProps {
   name: string;
@@ -54,12 +55,8 @@ export default function UserInfo() {
   return (
     <div className="userInfoContainer">
       <div className="userImg">
-        <img
-          src="/default-avatar.png"
-          alt="Avatar do usuário"
-        />
+        <img src={avatarPadrao} alt="Avatar do usuário" />
       </div>
-
       <div className="text">
         <h2 className="userName">{userData?.name || "Usuário"}</h2>
         <p className="userType">
