@@ -1,0 +1,246 @@
+/* Container principal */
+.warnings-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  overflow-y: auto;
+  padding: 0.75rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-top: -60px;
+}
+
+/* Título */
+.warnings-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 0.75rem 0;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid #3498db;
+}
+
+/* Estados de carregamento */
+.warnings-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 0.75rem;
+}
+
+.warnings-loading p {
+  color: #7f8c8d;
+  font-size: 0.85rem;
+}
+
+/* Estado de erro */
+.warnings-error {
+  background: #fee;
+  border: 1px solid #fcc;
+  border-radius: 6px;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.warnings-error p {
+  color: #c00;
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+/* Estado vazio */
+.warnings-empty {
+  background: white;
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.warnings-empty p {
+  color: #95a5a6;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Lista de avisos */
+.warnings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* LIMITAÇÃO DE 3 AVISOS - Estilos específicos para mostrar no máximo 3 */
+.warnings-list.limit-3 {
+  max-height: calc(3 * (/* altura aproximada de um card */));
+  overflow: hidden;
+}
+
+.warnings-list.limit-3 .warning-card:nth-child(n+4) {
+  display: none;
+}
+
+/* Card de aviso individual */
+.warning-card {
+  margin-top: -5px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.warning-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Cabeçalho do card */
+.warning-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 0.65rem 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.warning-card-title {
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0;
+  flex: 1;
+  line-height: 1.3;
+}
+
+.warning-subject {
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Conteúdo do aviso */
+.warning-content {
+  padding: 0.75rem;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.warning-content p {
+  margin: 0;
+  color: #2c3e50;
+  line-height: 1.5;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+}
+
+/* Detalhes do aviso */
+.warning-details {
+  padding: 0.65rem 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  background: #f8f9fa;
+}
+
+.warning-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.detail-label {
+  font-size: 0.75rem;
+  color: #7f8c8d;
+  font-weight: 500;
+}
+
+.detail-value {
+  font-size: 0.85rem;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* Rodapé do card */
+.warning-footer {
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ecf0f1;
+  font-size: 0.75rem;
+}
+
+.warning-trimester {
+  color: #3498db;
+  font-weight: 600;
+}
+
+.warning-date {
+  color: #7f8c8d;
+}
+
+/* Personalização da scrollbar */
+.warnings-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.warnings-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.warnings-container::-webkit-scrollbar-thumb {
+  background: #bdc3c7;
+  border-radius: 3px;
+}
+
+.warnings-container::-webkit-scrollbar-thumb:hover {
+  background: #95a5a6;
+}
+.warnings-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Botão para ver todos os avisos */
+.view-all-button {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.view-all-button:hover {
+  background: #2980b9;
+  transform: translateY(-1px);
+}
+
+.view-all-button:active {
+  transform: translateY(0);
+}
+
+/* Contador de avisos */
+.warnings-counter {
+  color: #7f8c8d;
+  font-size: 0.8rem;
+  text-align: center;
+}

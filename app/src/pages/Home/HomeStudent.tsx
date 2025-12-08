@@ -1,6 +1,6 @@
 import StudentSideBar from "../../Components/SideBar/Student-SideBar";
-import Alerts from "../../Components/Alerts/Alerts";
 import HomeBase from "../../Components/HomeBase/HomeBase";
+import TeacherWarnings from "../../Components/MyAlerts/TeacherWarnings" // ← Adicionar
 import "./css/HomeStudent.css";
 import { useState, useEffect } from "react";
 import Graphic from "../../Components/Graphic/Graphic";
@@ -33,23 +33,21 @@ export default function HomeStudent() {
             }
         })
         .then(async response => {
-
             if (!response.ok) {
                 throw new Error('Erro ao buscar dados do estudante');
             }
-
             return response.json();
         })
         .then((data: StudentData) => {
-    console.log('Dados recebidos:', data);
-    console.log('ClassInfo:', data.classInfo);
-    
-    if (!data || !data.studentId) {
-        throw new Error('Dados do estudante inválidos ou incompletos');
-    }
-    setStudentData(data);
-    setLoading(false);
-})
+            console.log('Dados recebidos:', data);
+            console.log('ClassInfo:', data.classInfo);
+            
+            if (!data || !data.studentId) {
+                throw new Error('Dados do estudante inválidos ou incompletos');
+            }
+            setStudentData(data);
+            setLoading(false);
+        })
         .catch(error => {
             console.error('Erro ao buscar dados do estudante:', error);
             setLoading(false);
@@ -66,29 +64,27 @@ export default function HomeStudent() {
 
     return (
         <div className="homestudent">
-        <div className="sideBar">
-            <StudentSideBar />
-        </div>
-        <div className="main-content">
-            <div className="base">
-                <HomeBase />
-                <div className="studentInfo">
-                    <p>Serie: <span id="serie">{studentData?.classInfo?.year || 'N/A'}</span></p>
-                    <p>Turma: <span id="turma">{studentData?.classInfo?.name || 'N/A'}</span></p>
+            <div className="sideBar">
+                <StudentSideBar />
+            </div>
+            <div className="main-content">
+                <div className="base">
+                    <HomeBase />
+                    <div className="studentInfo">
+                        <p>Serie: <span id="serie">{studentData?.classInfo?.year || 'N/A'}</span></p>
+                        <p>Turma: <span id="turma">{studentData?.classInfo?.name || 'N/A'}</span></p>
+                    </div>
+                </div>
+                <div className="graphic-container">
+                    <div className="graphic">
+                        <Graphic />
+                    </div>
                 </div>
             </div>
-            <div className="graphic-container">
-                <div className="graphic">
-                    <Graphic />
-                </div>
+            <div className="alertsConteiner">
+                <TeacherWarnings classId={studentData?.classInfo?.id}
+                 showViewAllButton={true} />
             </div>
         </div>
-        <div className="alertsConteiner">
-            <p id="alertsTitle">Avisos da semana</p>
-            <div className="alerts">
-                <Alerts />
-            </div>
-        </div>
-    </div>
     );
 }
