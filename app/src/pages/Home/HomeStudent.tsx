@@ -1,7 +1,7 @@
 import StudentSideBar from "../../Components/SideBar/Student-SideBar";
 import HomeBase from "../../Components/HomeBase/HomeBase";
 import TeacherWarnings from "../../Components/MyAlerts/TeacherWarnings";
-import { useNavigate } from 'react-router-dom'; // ← Adicionar
+import { useNavigate } from 'react-router-dom'; 
 import "./css/HomeStudent.css";
 import { useState, useEffect } from "react";
 import Graphic from "../../Components/Graphic/Graphic";
