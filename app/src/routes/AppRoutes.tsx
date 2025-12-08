@@ -9,6 +9,7 @@ import Class from "../pages/Class/Class";
 import Exam from "../pages/Exam/Exam";
 import { Navigate } from "react-router-dom";
 import SelectSubject from "../pages/Subjects/SelectSubject";
+import AllStudentWarnings from "../pages/Warnings/AllStudentWarnings";
 
 
 export default function AppRoutes() {
@@ -25,6 +26,7 @@ export default function AppRoutes() {
       <Route path="/class/:id" element={<Class />} />
       <Route path="/class/:id/exam" element={<Exam />} />
       <Route path="/class/:id/subjects" element={<SelectSubject />} />
+      <Route path="/student/avisos" element={<AllStudentWarnings />} />
 
     </Routes>
   );

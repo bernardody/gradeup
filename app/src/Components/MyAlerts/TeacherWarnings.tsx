@@ -48,18 +48,19 @@ interface Warning {
 interface TeacherWarningsProps {
   classId?: number;
   maxWarnings?: number;
-  showViewAllButton?: boolean; 
+  showViewAllButton?: boolean;
+  onViewAll?: () => void; // Callback para navegação
 }
 
 const TeacherWarnings: React.FC<TeacherWarningsProps> = ({ 
   classId, 
-  maxWarnings = 3, // Valor padrão: 3 avisos
-  showViewAllButton = false // Valor padrão: não mostrar botão
+  maxWarnings = 3,
+  showViewAllButton = false,
+  onViewAll
 }) => {
   const [warnings, setWarnings] = useState<Warning[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [showAll, setShowAll] = useState<boolean>(false); // Estado para controlar se mostra todos
 
   useEffect(() => {
     if (classId) {
@@ -88,7 +89,6 @@ const TeacherWarnings: React.FC<TeacherWarningsProps> = ({
       }
 
       const data: Warning[] = await response.json();
-      // Ordenar por data (mais recentes primeiro)
       const sortedData = data.sort((a, b) => 
         new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
       );
@@ -121,8 +121,7 @@ const TeacherWarnings: React.FC<TeacherWarningsProps> = ({
     });
   };
 
-  // Determinar quais avisos mostrar com base no estado
-  const warningsToShow = showAll ? warnings : warnings.slice(0, maxWarnings);
+  const warningsToShow = warnings.slice(0, maxWarnings);
   const hasMoreWarnings = warnings.length > maxWarnings;
 
   if (loading) {
@@ -198,22 +197,17 @@ const TeacherWarnings: React.FC<TeacherWarningsProps> = ({
             ))}
           </div>
           
-
-          {/* Botão para mostrar mais/menos avisos */}
           {showViewAllButton && hasMoreWarnings && (
             <div className="warnings-controls">
               <button 
                 className="view-all-button"
-                onClick={() => setShowAll(!showAll)}
+                onClick={onViewAll}
               >
-                {showAll ? 'Mostrar menos' : `Ver todos (${warnings.length})`}
+                Ver todos ({warnings.length})
               </button>
-              
-              {!showAll && warnings.length > 0 && (
-                <div className="warnings-counter">
-                  <small>Mostrando {Math.min(maxWarnings, warnings.length)} de {warnings.length} avisos</small>
-                </div>
-              )}
+              <div className="warnings-counter">
+                <small>Mostrando {Math.min(maxWarnings, warnings.length)} de {warnings.length} avisos</small>
+              </div>
             </div>
           )}
         </>

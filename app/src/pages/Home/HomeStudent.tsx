@@ -1,6 +1,7 @@
 import StudentSideBar from "../../Components/SideBar/Student-SideBar";
 import HomeBase from "../../Components/HomeBase/HomeBase";
-import TeacherWarnings from "../../Components/MyAlerts/TeacherWarnings" // ← Adicionar
+import TeacherWarnings from "../../Components/MyAlerts/TeacherWarnings";
+import { useNavigate } from 'react-router-dom'; // ← Adicionar
 import "./css/HomeStudent.css";
 import { useState, useEffect } from "react";
 import Graphic from "../../Components/Graphic/Graphic";
@@ -21,6 +22,7 @@ interface StudentData {
 export default function HomeStudent() {
     const [studentData, setStudentData] = useState<StudentData | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
+    const navigate = useNavigate(); // ← Adicionar
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -54,6 +56,11 @@ export default function HomeStudent() {
         });
     }, []);
 
+    // ← Adicionar função de navegação
+    const handleViewAllWarnings = () => {
+        navigate('/student/avisos');
+    };
+
     if (loading) {
         return <div>Loading...</div>;
     }
@@ -82,8 +89,11 @@ export default function HomeStudent() {
                 </div>
             </div>
             <div className="alertsConteiner">
-                <TeacherWarnings classId={studentData?.classInfo?.id}
-                 showViewAllButton={true} />
+                <TeacherWarnings 
+                    classId={studentData?.classInfo?.id}
+                    showViewAllButton={true}
+                    onViewAll={handleViewAllWarnings} // ← Adicionar callback
+                />
             </div>
         </div>
     );
