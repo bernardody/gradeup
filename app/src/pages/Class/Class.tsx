@@ -134,7 +134,7 @@ export default function Class() {
 
         <div className="class-grid">
           <MyTests subjectId={selectedSubjectId} />
-          <MyWorks />
+          <MyWorks subjectId={selectedSubjectId}/>
         </div>
 
         <div className="class-alerts">
