@@ -106,6 +106,38 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "listar alunos por turma",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ0Y2MiLCJzdWIiOiJDbMOhdWRpYSBNZW5lemVzIiwiZXhwIjoxNzY1MjkxODk4LCJpYXQiOjE3NjUyOTEyOTgsImVtYWlsIjoiY2xhdWRpYS5tZW5lemVzQGVzY29sYS5jb20ifQ.ggRZf_MtaRBoCo_WNd4BF2g3jNXRrfKrsDXJDH3yGxmH51AuAnpOYbs6Nz7RDoEYnN8hyLEien_39-8LWNieBElyssEiEOdKw26Iu6-wcjuwdWq63_35osMu2OU4pg6TX3s5Wusqd1-T6MsBvbMfhEiRRwgPpYYFQY8l3Ot3Yl6Yz4TdNitgAbLBAXIqLIB3h6lTzKrM01Iz9QkKGdet1fYV9lmz9aT8B_zox-yj2CUKjDn03KKkux3rED7ywqLMP5yUD4YC5g6vHuN7iz99l_1Ee4Ue4bXgzBmRLY9s1li3EVYrSEgfg9-ov2f0VM-ZiEO4cGv7hcnbY30tEGwVGQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/registrations/class/2/students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"registrations",
+								"class",
+								"2",
+								"students"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
