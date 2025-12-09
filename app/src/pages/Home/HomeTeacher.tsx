@@ -139,12 +139,12 @@ export default function HomeTeacher() {
 
     const handleSelectEvent = (event: EventoCalendario) => {
         const info = `
-📝 ${event.title}
-👥 Turma: ${event.resource?.class}
-📚 Matéria: ${event.resource?.subject}
-⭐ Nota Máxima: ${event.resource?.maxScore}
-📅 ${event.resource?.trimester}
-🗓️ Data: ${format(event.start, "dd 'de' MMMM 'de' yyyy", { locale: ptBR })}
+            ${event.title}
+            Turma: ${event.resource?.class}
+            Matéria: ${event.resource?.subject}
+            Nota Máxima: ${event.resource?.maxScore}
+            ${event.resource?.trimester}
+            Data: ${format(event.start, "dd 'de' MMMM 'de' yyyy", { locale: ptBR })}
         `;
         alert(info);
     };
@@ -201,7 +201,7 @@ export default function HomeTeacher() {
                 <div className="base">
                     <HomeBase />
                     <div className="studentInfo">
-                        <p>📅 Suas Provas • Total: {events.length}</p>
+                        <p>Suas Provas - Total: {events.length}</p>
                     </div>
                 </div>
                 <div className="calendar-container">
@@ -215,6 +215,8 @@ export default function HomeTeacher() {
                             onNavigate={handleNavigate}
                             style={{ height: 600 }}
                             culture="pt-BR"
+                            views={['month']}  
+                            defaultView="month"
                             eventPropGetter={eventStyleGetter}
                             onSelectEvent={handleSelectEvent}
                             messages={{
