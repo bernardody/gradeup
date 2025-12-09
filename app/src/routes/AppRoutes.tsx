@@ -12,6 +12,7 @@ import SelectSubject from "../pages/Subjects/SelectSubject";
 import AllStudentWarnings from "../pages/Warnings/AllStudentWarnings";
 import ExamList from "../pages/TeacherExamsList/ExamList";
 import GradeManagement from "../pages/TeacherExamsList/GradeManagement";
+import AllTeacherWarnings from "../pages/Warnings/AllTeacherWarnings";
 
 
 export default function AppRoutes() {
@@ -32,6 +33,7 @@ export default function AppRoutes() {
       <Route path="/class/:id/exam-list" element={<ExamList/>} />
         <Route path="/exams/:id" element={<ExamList />} />
  <Route path="/grades/manage/:examId" element={<GradeManagement />} />
+ <Route path="/class/:id/warnings" element={<AllTeacherWarnings />} />
     </Routes>
   );
 }

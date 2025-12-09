@@ -110,7 +110,7 @@ export default function PostAlert({
 
   return (
     <div className="post-alert">
-      <h2>Publicar Alerta</h2>
+      <h2>Publicar Aviso</h2>
 
       <form onSubmit={handleSubmit}>
         <select

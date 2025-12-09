@@ -1,6 +1,7 @@
 body {
   display: block; 
   place-items: unset;
+  overflow:hidden;
 }
 
 #root {
