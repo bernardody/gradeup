@@ -1,0 +1,252 @@
+body {
+  display: block !important;
+  place-items: unset !important;
+}
+
+.exam {
+  display: flex;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+.exam .section .button-group .btn-primary,
+.exam .section .button-group .btn-secondary {
+  padding: 10px 20px !important;
+  border: none !important;
+  border-radius: 25px !important;
+  color: white !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  white-space: nowrap !important;
+  min-width: auto !important;
+  width: auto !important;
+  max-width: none !important;
+}
+
+.exam .section .button-group .btn-primary {
+  background-color: #4a5fc1 !important;
+}
+
+.exam .section .button-group .btn-secondary {
+  background-color: #5865d6 !important;
+}
+
+.exam .section .button-group .btn-primary:hover {
+  background-color: #3d4fa3 !important;
+  transform: translateY(-2px) !important;
+}
+
+.exam .section .button-group .btn-secondary:hover {
+  background-color: #4a56c4 !important;
+  transform: translateY(-2px) !important;
+}
+
+.exam .section .button-group .btn-primary.active {
+  background-color: #2e3a7a !important;
+}
+
+.exam .section .button-group .btn-secondary.active {
+  background-color: #3d47a8 !important;
+}
+
+.exam-content {
+  flex: 1;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.exam-content h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.section {
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 40px;
+}
+
+.section h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.exam .btn-primary {
+  padding: 10px 24px !important;
+  border: none !important;
+  border-radius: 30px !important;
+  background-color: #4a5fc1 !important;
+  color: white !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.exam .btn-primary:hover {
+  background-color: #3d4fa3 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 95, 193, 0.3);
+}
+
+.exam .btn-primary.active {
+  background-color: #2e3a7a !important;
+  box-shadow: 0 4px 12px rgba(74, 95, 193, 0.4);
+}
+
+.exam .btn-secondary {
+  padding: 10px 24px !important;
+  border: none !important;
+  border-radius: 30px !important;
+  background-color: #5865d6 !important;
+  color: white !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.exam .btn-secondary:hover {
+  background-color: #4a56c4 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(88, 101, 214, 0.3);
+}
+
+.exam .btn-secondary.active {
+  background-color: #3d47a8 !important;
+  box-shadow: 0 4px 12px rgba(88, 101, 214, 0.4);
+}
+
+.date-input {
+  display: block;
+  margin: 0 auto;
+  padding: 14px 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  background-color: #4a5fc1;
+  cursor: pointer;
+  color: white;
+  width: fit-content;
+  min-width: 200px;
+}
+
+.date-input::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.date-input::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.date-input::-webkit-datetime-edit {
+  color: white;
+}
+
+.date-input::-webkit-datetime-edit-fields-wrapper {
+  color: white;
+}
+
+.date-input::-webkit-datetime-edit-text {
+  color: white;
+}
+
+.date-input::-webkit-datetime-edit-day-field,
+.date-input::-webkit-datetime-edit-month-field,
+.date-input::-webkit-datetime-edit-year-field {
+  color: white;
+}
+
+.date-input:focus {
+  outline: none;
+  border-color: #ffffff;
+  background-color: #3d47a8;
+  box-shadow: 0 0 0 3px rgba(74, 95, 193, 0.2);
+}
+
+input[type="number"] {
+  display: block;
+  margin: 0 auto;
+  padding: 14px 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  background-color: #4a5fc1;
+  cursor: pointer;
+  color: white;
+  width: fit-content;
+  min-width: 200px;
+  text-align: center;
+}
+
+input[type="number"]::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+input[type="number"]:focus {
+  outline: none;
+  border-color: #ffffff;
+  background-color: #3d47a8;
+  box-shadow: 0 0 0 3px rgba(74, 95, 193, 0.2);
+}
+
+.btn-publish {
+  display: block;
+  margin: 40px auto 0;
+  padding: 16px 50px;
+  border: none;
+  border-radius: 30px;
+  background-color: #4a90e2;
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+.btn-publish:hover {
+  background-color: #357abd;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(74, 144, 226, 0.4);
+}
+
+.btn-publish:active {
+  transform: translateY(0);
+}
+
+.sideBar {
+  width: 280px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background-color: white;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+}

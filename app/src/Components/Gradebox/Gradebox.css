@@ -1,0 +1,15 @@
+.grade-box {
+  background: white;
+  color: black;
+  border-radius: 14px;
+  padding: 15px;
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 15px;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+}
+
+.grade-box .sub {
+  font-size: 12px;
+  color: rgb(50, 50, 50);
+}

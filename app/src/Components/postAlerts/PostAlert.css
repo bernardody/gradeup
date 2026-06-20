@@ -1,0 +1,73 @@
+.post-alert {
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  transition: 0.2s ease;
+}
+
+.post-alert h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.post-alert form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.post-alert input,
+.post-alert select,
+.post-alert textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #d6d6d6;
+  font-size: 15px;
+  color: #1f2937;
+  background-color: #fafafa;
+  transition: 0.2s ease;
+  font-family: inherit;
+}
+
+.post-alert input:hover,
+.post-alert select:hover,
+.post-alert textarea:hover {
+  background-color: #ffffff;
+  border-color: #c7c7c7;
+}
+
+.post-alert select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 12 12'%3E%3Cpath fill='%23374151' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 42px;
+  cursor: pointer;
+}
+
+.post-alert select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.post-alert textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.post-alert input:focus,
+.post-alert select:focus,
+.post-alert textarea:focus {
+  border-color: #3b82f6;
+}
